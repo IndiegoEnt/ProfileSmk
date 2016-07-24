@@ -33,8 +33,7 @@ class Migrate extends CI_Controller
                 $configuration_file_data = fread($configuration_file,filesize("application/cli_templates/migrationConfigurationTemplate"));
                 
                 
-                $configuration_file_data = str_replace("{{migration_version}}" , '$config[\'migration_version\'] = \''.$timestamp.'\';' , $configuration_file_data);
-                echo($configuration_file_data);
+                $configuration_file_data = str_replace("{{migration_version}}" , '$config[\'migration_version\'] = \''.$timestamp.'\'; ' , $configuration_file_data);
                 if ($h = fopen("application/config/migration.php", 'w')) {
                     if (fwrite($h, $configuration_file_data)) {
                         $response = 1;
