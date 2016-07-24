@@ -1,0 +1,20 @@
+{
+  "name": "ProfileSmk",
+  "homepage": "https://github.com/IndiegoEnt/ProfileSmk",
+  "authors": [
+    "Purwa Darozatun <purwa@javan.co.id>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
