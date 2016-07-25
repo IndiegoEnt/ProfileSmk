@@ -26,10 +26,13 @@
                 <div class="panel-heading">
                     <div class="panel-title">Sign In</div>
                 </div>     
-
-                <?php
-                    print_r($flash_messages);
-                ?>
+                <?php if($flash_messages != ''){?>    
+                              
+                    <div class="alert alert-warning">
+                        <strong></strong> <?php echo $flash_messages;?>
+                    </div>   
+                
+                <?php } ?>
                 <div style="padding-top:30px" class="panel-body" >
                     <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
                     <form id="loginform" class="form-horizontal" role="form" action="<?php echo base_url()?>Auth/cek_login" method="post">

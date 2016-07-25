@@ -6,7 +6,7 @@ function __construct(){
 		$this->load->database();
 	}
 	public function index() {
-        $data = array('flash_messages' => isset($_SESSION['flash_messages']) ? $_SESSION['flash_messages'] : array('data' => ''));
+        $data = array('flash_messages' => isset($_SESSION['flash_messages']) ? $_SESSION['flash_messages'] : '');
 		$this->load->view('login', $data);
 	}
 
@@ -27,12 +27,12 @@ function __construct(){
 				$this->session->set_userdata($sess_data);
 			}
 			if ($this->session->userdata('active')==1) {
-				redirect('Welcome');
+				redirect('Admin');
                 die("here");
 			}
 		}
 
-        $_SESSION['flash_messages'] = array('data' => 'Username / Password Salah.');
+        $_SESSION['flash_messages'] = 'Username / Password Salah.';
         $this->session->mark_as_flash('flash_messages');
         redirect('Auth');
 	}
