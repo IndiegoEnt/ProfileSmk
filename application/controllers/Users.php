@@ -25,4 +25,26 @@ class Users extends CI_Controller {
         // Publish the template
         $this->template->publish();
     }
+    public function create() {
+        $this->load->model('user');
+        
+
+        $data = array(
+            'title' => 'Table Users',
+            'userModel' => $this->user->create_model()
+        );
+
+        
+        $this->template->content->view('users/create', $data);
+        
+        // Publish the template
+        $this->template->publish();
+    }
+    public function create_save() {
+        $this->load->model('user');
+
+        $this->user->save($this->input->post());
+
+        redirect('Users');
+    }
 }

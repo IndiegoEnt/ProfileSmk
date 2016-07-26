@@ -13,6 +13,7 @@
         <th>#</th>
         <th>Username</th>
         <th>Nama</th>
+        <th>Role</th>
         <th>Created Date</th>    
         <th>Updated Date</th>
         <th>Status</th>
@@ -25,6 +26,7 @@
         <td><?php echo ($key + 1);?></td>
         <td><?php echo ($value->username);?></td>
         <td><?php echo ($value->nama);?></td>
+        <td><?php echo ($value->role);?></td>
         <td><?php echo ($value->tanggal_buat);?></td>
         <td><?php echo ($value->tanggal_edit);?></td>
         <td><?php echo ($value->active = "1" ? "Aktif" :  "Tidak Aktif" );?></td>

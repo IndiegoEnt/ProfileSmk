@@ -69,7 +69,7 @@ $config['migration_auto_latest'] = TRUE;
 | be upgraded / downgraded to.
 |
 */
-$config['migration_version'] = '20160725014518'; 
+$config['migration_version'] = '20160726025756'; 
 
 /*
 |--------------------------------------------------------------------------
