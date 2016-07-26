@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Auth extends CI_Controller {
-function __construct(){
+	function __construct(){	
 		parent::__construct();
 		$this->load->database();
 	}
@@ -19,7 +19,7 @@ function __construct(){
 		$hasil = $this->user->cek_user($data);
 		if ($hasil->num_rows() == 1) {
 			foreach ($hasil->result() as $sess) {
-				$sess_data['logged_in'] = 'Logged in';
+				$sess_data['logged_in'] = true;
 				$sess_data['id'] = $sess->id;
 				$sess_data['nama'] = $sess->nama;
 				$sess_data['username'] = $sess->username;
@@ -34,6 +34,16 @@ function __construct(){
 
         $_SESSION['flash_messages'] = 'Username / Password Salah.';
         $this->session->mark_as_flash('flash_messages');
+        redirect('Auth');
+	}
+	public function logout () {
+		$sess_data['logged_in'] = false;
+		$sess_data['id'] = "";
+		$sess_data['nama'] = "";
+		$sess_data['username'] = "";
+		$sess_data['active'] = "";
+		$this->session->set_userdata($sess_data);
+		
         redirect('Auth');
 	}
 
