@@ -39,6 +39,7 @@
 
 			$data = array(
 				'username' => $params['username'],
+				'tanggal_edit' =>$params['tanggal_edit'],
 				'nama ' => $params['nama'],
 				'role' => $params['role'],
 				'jurusan_id' => $params['jurusan_id'],
