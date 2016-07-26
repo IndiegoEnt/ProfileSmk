@@ -3,7 +3,7 @@
       <h2><?php echo($title);?></h2>
     </div> 
     <div class="col-lg-6">
-      <h2 class="pull-right"><a class="btn btn-primary">Tambah</a> </h2>
+      <h2 class="pull-right"><a class="btn btn-primary" href="<?php echo base_url();?>/users/create">Tambah</a> </h2>
     </div> 
   </div>
   <div class="table-responsive">
@@ -31,7 +31,7 @@
         <td><?php echo ($value->tanggal_edit);?></td>
         <td><?php echo ($value->active = "1" ? "Aktif" :  "Tidak Aktif" );?></td>
         <td>
-          <div><a class="btn btn-warning">Edit</a> <a class="btn btn-danger">Delete</a></td>
+          <div><a class="btn btn-warning" href="<?php echo base_url();?>/users/edit/<?php echo $value->id;?>">Edit</a> <a class="btn btn-danger"  href="<?php echo base_url();?>/users/delete/<?php echo $value->id;?>">Delete</a></td>
       </tr>
     <?php }?>
     </tbody>

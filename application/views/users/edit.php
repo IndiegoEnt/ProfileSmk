@@ -1,19 +1,16 @@
-<form action="<?php echo base_url();?>/users/create_save" method="post">
+<form action="<?php echo base_url();?>/users/edit_save" method="post">
   <div class="form-group">
     <label for="username">Username</label>
-    <input type="text" class="form-control" id="username" placeholder="username" name="username">
-  </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" class="form-control" id="password" placeholder="password" name="password">
+    <input type="text" class="form-control" id="username" placeholder="username" value="<?php echo ($userModel->username); ?>" name="username">
+    <input type="hidden" value="<?php echo ($userModel->id); ?>" name="id">
   </div>
   <div class="form-group">
     <label for="nama">Nama</label>
-    <input type="text" class="form-control" id="nama" placeholder="nama" name="nama">
+    <input type="text" class="form-control" id="nama" placeholder="name"  value="<?php echo ($userModel->nama); ?>" name="nama">
   </div>
   <div class="form-group">
     <label for="role">Role</label>  
-    <select class="form-control" id="role" name="role">
+    <select class="form-control" id="role" name="role"  value="">
         <option value="" >Pilih Role</option>
         <option value="ROLE_ADMIN" >Admin</option>
         <option value="ROLE_KAJUR" >Ketua Jurusan</option>
@@ -38,6 +35,9 @@
             $('#jurusanContainer').show();
         }
     })
+
+    $('#role').val('<?php echo ($userModel->role); ?>');
+    $('#jurusan').val('<?php echo ($userModel->jurusan_id); ?>');
     $('#role').change();
     $('#username').change(function(){
       $.ajax({
