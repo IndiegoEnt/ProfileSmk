@@ -6,6 +6,7 @@
 			$query = $this->db->get_where('users', $data);
 			return $query;
 		}
+		
 		public function list_user() {
 			$data = array('active' => '1');
 			$query = $this->db->get_where("users" , $data);
