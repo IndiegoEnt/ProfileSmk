@@ -6,6 +6,11 @@
 			$query = $this->db->get_where('users', $data);
 			return $query;
 		}
+		public function list_user() {
+			$data = array();
+			$query = $this->db->get_where("users" , $data);
+			return $query->result();
+		}
 
 	}
 
