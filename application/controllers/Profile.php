@@ -13,7 +13,7 @@ class Profile extends CI_Controller {
     
     public function index() {
         
-        $this->template->content->view('dashboard/profile', array('title' => 'Profile SMK'));
+        $this->template->content->view('profile/index', array('title' => 'Profile SMK'));
         
         // Publish the template
         $this->template->publish();
