@@ -62,7 +62,11 @@
             <li><a href="<?php echo base_url(); ?>admin">Home</a></li>
             <li class="active"><a href="<?php echo base_url(); ?>users">Users <span class="sr-only">(current)</span></a></li>
             <li><a href="<?php echo base_url(); ?>profile">Profile</a></li>
+
             <li><a href="<?php echo base_url(); ?>Kategori_berita">Kategori Berita</a></li>
+
+            <li><a href="<?php echo base_url(); ?>jurusan">Jurusan</a></li>
+            <li><a href="#">Analytics</a></li>
             <li><a href="#">Export</a></li>
           </ul>
         </div>
