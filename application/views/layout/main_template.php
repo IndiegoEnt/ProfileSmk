@@ -62,11 +62,12 @@
             <li><a href="<?php echo base_url(); ?>admin">Home</a></li>
             <li class="active"><a href="<?php echo base_url(); ?>users">Users <span class="sr-only">(current)</span></a></li>
             <li><a href="<?php echo base_url(); ?>profile">Profile</a></li>
-             <li><a href="<?php echo base_url(); ?>Kategori_berita">Kategori Berita</a></li>
-
+            <li><a href="<?php echo base_url(); ?>berita">Berita</a></li>
+            <li><a href="<?php echo base_url(); ?>Kategori">Kategori</a></li>
+            <li><a href="<?php echo base_url(); ?>ekskul">Ekskul</a></li>
+            <li><a href="<?php echo base_url(); ?>Kategori_berita">Kategori Berita</a></li>
             <li><a href="<?php echo base_url(); ?>jurusan">Jurusan</a></li>
-            <li><a href="#">Analytics</a></li>
-            <li><a href="#">Export</a></li>
+           
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
