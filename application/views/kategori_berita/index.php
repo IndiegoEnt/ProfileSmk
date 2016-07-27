@@ -3,7 +3,7 @@
       <h2><?php echo($title);?></h2>
     </div> 
     <div class="col-lg-6">
-      <h2 class="pull-right"><a class="btn btn-primary">Tambah</a> </h2>
+      <h2 class="pull-right" href="<?php echo base_url();?>/kategori_berita/create"><a class="btn btn-primary">Tambah</a> </h2>
     </div> 
   </div>
   <div class="table-responsive">
@@ -28,7 +28,7 @@
           <div><a class="btn btn-warning">Edit</a> <a class="btn btn-danger">Delete</a>
         </td>
       </tr>
-    <?php// }?>
+    <?php }?>
     </tbody>
   </table>
   </div>

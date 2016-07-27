@@ -1,4 +1,4 @@
-<form action="<?php echo base_url();?>/users/create_save" method="post">
+<form action="<?php echo base_url();?>/kategori_berita/create_save" method="post">
   <div class="form-group">
     <label for="kategori_id">Id Kategori</label>
     <input type="text" class="form-control" id="kategori_id" placeholder="Id Kategori" name="kategori_id">
