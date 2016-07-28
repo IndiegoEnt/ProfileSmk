@@ -29,13 +29,16 @@ class Users extends CI_Controller {
 
     public function create() {
         $this->load->model('user');
+        $this->load->model('jurusan_model');
         
         $data = array(
             'title' => 'Create User',
-            'userModel' => $this->user->create_model()
+            'userModel' => $this->user->create_model(),
+            'jurusans' => $this->jurusan_model->list_jurusan()
         );
 
         
+
         $this->template->content->view('users/create', $data);
         
         // Publish the template
@@ -66,6 +69,7 @@ class Users extends CI_Controller {
         $data = array(
             'userModel' => $this->user->get($id),
             'title' => 'Edit User',
+            'jurusans' => $this->jurusan_model->list_jurusan()
         );
 
         $this->template->content->view('users/edit', $data);

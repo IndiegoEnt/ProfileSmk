@@ -20,8 +20,10 @@
     <label for="jurusan">Jurusan</label> 
     <select class="form-control" id="jurusan" name="jurusan_id">
         <option value="" >Pilih Jurusan</option>
-        <option value="ROLE_ADMIN" >Admin</option>
-        <option value="ROLE_KAJUR" >Ketua Jurusan</option>
+        
+        <?php foreach($jurusans as $key => $val) { ?>
+          <option value="<?php echo $val->id; ?>" ><?php echo $val->nama; ?></option>
+        <?php } ?>
     </select>
   </div>
   <button type="submit" class="btn btn-default" id="button-submit">Submit</button>
