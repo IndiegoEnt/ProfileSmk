@@ -65,6 +65,7 @@ class Users extends CI_Controller {
 
     public function edit($id) {
         $this->load->model('user');
+        $this->load->model('jurusan_model');
 
         $data = array(
             'userModel' => $this->user->get($id),

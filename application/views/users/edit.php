@@ -1,16 +1,16 @@
 <form action="<?php echo base_url();?>/users/edit_save" method="post">
   <div class="form-group">
     <label for="username">Username</label>
-    <input type="text" class="form-control" id="username" placeholder="username" value="<?php echo ($userModel->username); ?>" name="username">
+    <input type="text" class="form-control" id="username" placeholder="username" value="<?php echo ($userModel->username); ?>" name="username" readonly>
     <input type="hidden" value="<?php echo ($userModel->id); ?>" name="id">
   </div>
   <div class="form-group">
     <label for="nama">Nama</label>
-    <input type="text" class="form-control" id="nama" placeholder="name"  value="<?php echo ($userModel->nama); ?>" name="nama">
+    <input type="text" class="form-control" id="nama" placeholder="name"  value="<?php echo ($userModel->nama); ?>" name="nama" required>
   </div>
   <div class="form-group">
     <label for="role">Role</label>  
-    <select class="form-control" id="role" name="role"  value="">
+    <select class="form-control" id="role" name="role"  value="" required>
         <option value="" >Pilih Role</option>
         <option value="ROLE_ADMIN" >Admin</option>
         <option value="ROLE_KAJUR" >Ketua Jurusan</option>
@@ -30,27 +30,19 @@
 </form>
 
 <script>
-    $('#role').change(function() {
+    $("form").validate();
+  	$('#role').change(function() {
         if($(this).val() != 'ROLE_KAJUR'){
             $('#jurusanContainer').hide();
+            $('#jurusan').prop('required' , false)
         }else{
             $('#jurusanContainer').show();
+            $('#jurusan').prop('required' , true)
         }
     })
 
+    $('#role').change();
     $('#role').val('<?php echo ($userModel->role); ?>');
     $('#jurusan').val('<?php echo ($userModel->jurusan_id); ?>');
-    $('#role').change();
-    $('#username').change(function(){
-      $.ajax({
-        url:'<?php echo base_url();?>/users/check_username/'+ $('#username').val(),
-        success : function(data){
-          if(JSON.parse(data).status == 1 ){
-            $('#button-submit').hide();
-          }else{
-            $('#button-submit').show();
-          }
-        }
-      })
-    });
+    
 </script>
