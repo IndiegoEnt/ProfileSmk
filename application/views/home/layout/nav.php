@@ -19,5 +19,6 @@
 				<li>
 					<a href="<?php echo base_url()?>home/kontak">Kontak</a>
 				</li>
+				
 			</ul>
 		</div>

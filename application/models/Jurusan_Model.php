@@ -43,10 +43,8 @@
 		}
 
 		public function  delete($id) {
-			$this->db->set('active', '0', FALSE);
-			$this->db->set('tanggal_edit', date('YmdHis'),  FALSE);
 			$this->db->where('id', $id );
-			$this->db->update('jurusan');
+			$this->db->delete('kategori');
 			return $params;
 		}
 	}

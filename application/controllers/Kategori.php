@@ -26,4 +26,58 @@ class Kategori extends CI_Controller {
         // Publish the template
         $this->template->publish();
     }
+
+    public function create() {
+        $this->load->model('Kategori_model');
+        
+        $data = array(
+            'title' => 'Create Kategori',
+            'kategoriModel' => $this->Kategori_model->create_model()
+        );
+
+        
+
+        $this->template->content->view('kategori/create', $data);
+        
+        // Publish the template
+        $this->template->publish();
+    }
+
+    public function create_save() {
+        $this->load->model('Kategori_model');
+
+        $this->Kategori_model->save($this->input->post());
+
+        redirect('Kategori');
+    }
+
+    public function edit($id) {
+        $this->load->model('Kategori_model');
+
+        $data = array(
+            'kategoriModel' => $this->Kategori_model->get($id),
+            'title' => 'Edit Kategori',
+        );
+
+        $this->template->content->view('kategori/edit', $data);
+        
+        // Publish the template
+        $this->template->publish();
+    }
+
+     public function edit_save() {
+        $this->load->model('Kategori_model');
+
+        $this->Kategori_model->update($this->input->post());
+
+        redirect('Kategori');
+    }
+
+    public function delete($id) {
+        $this->load->model('Kategori_Model');
+
+        $this->Kategori_Model->delete($id);
+
+        redirect('Kategori');
+    }
 }
