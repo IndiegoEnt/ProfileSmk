@@ -3,7 +3,7 @@
       <h2><?php echo($title);?></h2>
     </div> 
     <div class="col-lg-6">
-      <h2 class="pull-right" href="<?php echo base_url();?>/kategori_berita/create"><a class="btn btn-primary">Tambah</a> </h2>
+      <h2 class="pull-right"><a class="btn btn-primary" href="<?php echo base_url();?>kategori_berita/create">Tambah</a> </h2>
     </div> 
   </div>
   <div class="table-responsive">
@@ -13,7 +13,6 @@
         <th>#</th>
         <th>Id Kategori</th>
         <th>Id Berita</th>
-       
         <th width="150px">Aksi</th>
       </tr>
     </thead>
