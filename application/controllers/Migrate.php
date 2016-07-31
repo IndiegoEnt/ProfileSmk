@@ -16,7 +16,7 @@ class Migrate extends CI_Controller
         public function make($name)
         {
             try{
-
+                date_default_timezone_set('Asia/Bangkok');
                 $timestamp = date("YmdHis");
 
                 $template_file = fopen("application/cli_templates/migrationTemplate", "r") or die("Unable to open file!");

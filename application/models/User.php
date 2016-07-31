@@ -8,7 +8,9 @@
 		}
 		
 		public function list_user() {
-			$data = array('active' => '1');
+			$data = array('users.active' => '1');
+			$this->db->select('users.* , jurusan.nama as nama_jurusan');
+			$this->db->join('jurusan', 'jurusan.id = users.jurusan_id', 'left');
 			$query = $this->db->get_where("users" , $data);
 			return $query->result();
 		}
@@ -45,8 +47,8 @@
 				'role' => $params['role'],
 				'jurusan_id' => $params['jurusan_id'],
 			);
-			if($params['role'] == 'ROLE_ADMIN'){
-				$params['jurusan_id'] = null;
+			if($data['role'] == 'ROLE_ADMIN'){
+				$data['jurusan_id'] = null;
 			}
 
 			$this->db->where('id', $params['id']);

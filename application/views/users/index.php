@@ -6,14 +6,13 @@
       <h2 class="pull-right"><a class="btn btn-primary" href="<?php echo base_url();?>/users/create">Tambah</a> </h2>
     </div> 
   </div>
-  <div class="table-responsive">
-  <table class="table table-bordered table-hover">
+  <table class="table table-bordered table-hover" id="myTable">
     <thead>
       <tr>
-        <th>#</th>
         <th>Username</th>
         <th>Nama</th>
         <th>Role</th>
+        <th>Jurusaan</th>
         <th>Created Date</th>    
         <th>Updated Date</th>
         <th>Status</th>
@@ -23,10 +22,10 @@
     <tbody>
     <?php foreach ($tableData as $key => $value) { ?>
       <tr>
-        <td><?php echo ($key + 1);?></td>
         <td><?php echo ($value->username);?></td>
         <td><?php echo ($value->nama);?></td>
         <td><?php echo ($value->role);?></td>
+        <td><?php echo ($value->nama_jurusan);?></td>
         <td><?php echo ($value->tanggal_buat);?></td>
         <td><?php echo ($value->tanggal_edit);?></td>
         <td><?php echo ($value->active = "1" ? "Aktif" :  "Tidak Aktif" );?></td>
@@ -36,4 +35,9 @@
     <?php }?>
     </tbody>
   </table>
-  </div>
+
+  <script>
+    $(document).ready(function(){
+        $('#myTable').DataTable();
+    });
+  </script>
