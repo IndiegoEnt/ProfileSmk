@@ -21,7 +21,7 @@
     <link href="<?php echo base_url() ?>assets/custom/dashboard.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/datatables.net-bs/css/dataTables.bootstrap.min.css"></link>
     <link href="<?php echo base_url() ?>assets/ckeditor/styles.css"></link>
-
+    <link href="<?php echo base_url() ?>assets/bootstrap-fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css"></link>
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     
@@ -31,12 +31,22 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    
     <script>window.jQuery || document.write('<script src="<?php echo base_url() ?>assets/jquery/dist/jquery.min.js"><\/script>')</script>
     <script src="<?php echo base_url() ?>assets/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="<?php echo base_url() ?>assets/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <script src="<?php echo base_url() ?>assets/ckeditor/ckeditor.js"></script>
     <script src="<?php echo base_url() ?>assets/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url() ?>assets/jquery-validation/dist/jquery.validate.js"></script>
+
+    
+    <script src="<?php echo base_url() ?>assets/bootstrap-fileinput/js/plugins/purify.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/bootstrap-fileinput/js/plugins/sortable.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/bootstrap-fileinput/js/plugins/canvas-to-blob.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/bootstrap-fileinput/js/fileinput.js"></script>
+    <script src="<?php echo base_url() ?>assets/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+
+
     
   </head>
 

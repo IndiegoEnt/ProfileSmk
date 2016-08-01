@@ -24,7 +24,9 @@
 			);
 		}
 
-		public function  save($params) {
+		public function  save($params , $file) {
+			print_r($file);
+			die("here");
 			$params['tanggal_buat'] = date('YmdHis');
 			$params['tanggal_edit'] = date('YmdHis');
 			$params['active'] = 1;

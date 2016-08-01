@@ -1,4 +1,4 @@
-<form action="<?php echo base_url();?>/berita/create_save" method="post">
+<form action="<?php echo base_url();?>/berita/create_save" method="post"  enctype="multipart/form-data">
   <div class="form-group">
     <label for="berita_type">Jenis Berita</label>
     <select class="form-control" id="berita_type" name="berita_type" required>
@@ -24,7 +24,13 @@
     <label for="isi">Isi</label>
     <textarea type="text" class="form-control" id="isi" placeholder="isi" name="isi" required></textarea>
   </div>
+  <div class="form-group" style="max-width: 300px;">
+    <label class="control-label">Cover</label>
+    <input id="input-1" type="file" class="file" name="image">
+  </div>
   
+  
+
   <button type="submit" class="btn btn-default" id="button-submit">Submit</button>
 </form>
 
@@ -55,4 +61,11 @@
       })
     });
     CKEDITOR.replace( 'isi' );
+    $("#input-1").fileinput({
+        browseClass: "btn btn-primary btn-block",
+        showCaption: false,
+        showRemove: false,
+        showUpload: false
+    });
+    
 </script>
