@@ -10,11 +10,11 @@
 		public function create_jurusan() {
 			return array(
 				'nama' => '' ,
-				'user_id' => '' ,
 			);
 		}
 
 		public function save($params) {
+			$params['user_id'] = $this->session->userdata('id');
 			$params['tanggal_buat'] = date('YmdHis');
 			$params['tanggal_edit'] = date('YmdHis');
 			$params['active'] = 1;
@@ -29,7 +29,6 @@
 			$data = array(
 				'nama' => $params['nama'],
 				'tanggal_edit' =>$params['tanggal_edit'],
-				'user_id ' => $params['user_id'],
 			);
 
 			$this->db->where('id', $params['id']);
