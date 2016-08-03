@@ -26,6 +26,11 @@ class Kategori extends CI_Controller {
         // Publish the template
         $this->template->publish();
     }
+    
+    public function listJson() {
+        $this->load->model('Kategori_Model');
+        echo(json_encode($this->Kategori_Model->list_kategori()));
+    }
 
     public function create() {
         $this->load->model('Kategori_model');

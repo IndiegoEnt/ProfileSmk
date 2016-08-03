@@ -58,7 +58,7 @@ class Berita extends CI_Controller {
     public function create_save() {
         $this->load->model('Berita_Model');
 
-        $this->Berita_Model->save($this->input->post() , $_FILES['image']);
+        $this->Berita_Model->save($this->input->post() , $this);
 
         redirect('Berita');
     }

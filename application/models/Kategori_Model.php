@@ -24,7 +24,7 @@
 			$params['nama'] = ($params['nama']);
 			$params['keterangan'] = ($params['keterangan']);
 			$this->db->insert('kategori', $params);
-			return $params;
+			return $this->db->insert_id();
 		}
 
 		public function  update($params) {
@@ -39,6 +39,11 @@
 
 		public function  get($id) {
 			$query = $this->db->get_where("kategori" , array('id' => $id));
+			return $query->row();
+		}
+
+		public function  get_by_name($nama) {
+			$query = $this->db->query("select * from kategori where UPPER(nama) = '".$nama."'");
 			return $query->row();
 		}
 

@@ -20,7 +20,7 @@
     <tbody>
     <?php foreach ($tableData as $key => $value) { ?>
       <tr>
-        <td><?php echo ($value->image);?></td>
+        <td><img src="<?php echo base_url();?>upload/<?php echo $value->image?>" width="100px"></td>
         <td><?php echo ($value->judul);?></td>
         <td><?php echo ($value->berita_type == 'BERITA_JURUSAN' ? $value->nama_jurusan : 'Sekolah');?></td>
         <td><?php echo ($value->tanggal_buat);?></td>

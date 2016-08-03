@@ -24,19 +24,41 @@
 			);
 		}
 
-		public function  save($params , $file) {
-			print_r($file);
-			die("here");
-			$params['tanggal_buat'] = date('YmdHis');
-			$params['tanggal_edit'] = date('YmdHis');
+		public function  save($params , $ci) {
+			$this->load->model('kategori_berita_model');
+			$currentDate = date('YmdHis');
+			$params['tanggal_buat'] = $currentDate;
+			$params['tanggal_edit'] = $currentDate;
 			$params['active'] = 1;
 			if($params['berita_type'] == 'BERITA_SEKOLAH '){
 				$params['jurusan_id'] = null;
 			}
-            $this->db->insert('berita', $params);
+			$params['image'] =  $this->uploadFile($ci , md5("THUMB_" . $currentDate ));
+
+            $kategoris = $params['kategoris'];
+			unset($params['kategoris']);
+			
+			$this->db->insert('berita', $params);
+			$this->kategori_berita_model->save_batch($kategoris , $this->db->insert_id());
 			return $params;
 		}
 
+		public function uploadFile($ci , $currentDate){
+			$config['file_name'] = $currentDate;
+			$config['upload_path']   = './upload/'; 
+			$config['allowed_types'] = 'gif|jpg|png'; 
+			$ci->load->library('upload', $config);
+			
+			if ( ! $ci->upload->do_upload('image')) {
+				$error = array('error' => $ci->upload->display_errors()); 
+				var_dump($error);
+				die('HERE');
+			} else { 
+				$data = array('upload_data' => $ci->upload->data()); 
+				return $data['upload_data']['file_name'];
+			}
+			return "FILEERRROR"; 
+		}
 		public function  update($params) {
 			$params['tanggal_edit'] = date('YmdHis');
 			$params['active'] = 1;
@@ -70,10 +92,6 @@
 			return $query->row();
 		}
 
-		public function  check_username($id) {
-			$query = $this->db->get_where("users" , array('username' => $id));
-			return $query->row() ? '1' : '0';
-		}
 
 	}
 
