@@ -46,6 +46,10 @@
 			$query = $this->db->query("select * from kategori where UPPER(nama) = '".$nama."'");
 			return $query->row();
 		}
+		public function list_jurusan_by_berita_id($id){
+			$query = $this->db->query("select * from kategori join kategori_berita on kategori.id = kategori_berita.kategori_id where kategori_berita.berita_id = '".$id."'");
+			return $query->result();
+		}
 
 		public function  delete($id) {
 			$this->db->where('id', $id );

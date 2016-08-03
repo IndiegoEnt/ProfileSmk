@@ -14,7 +14,7 @@
         <th>Berita</th>
         <th>Created Date</th>    
         <th>Updated Date</th>
-        <th width="150px">Aksi</th>
+        <th width="200px">Aksi</th>
       </tr>
     </thead>
     <tbody>
@@ -26,6 +26,7 @@
         <td><?php echo ($value->tanggal_buat);?></td>
         <td><?php echo ($value->tanggal_edit);?></td>
         <td>
+          <a class="btn btn-primary" href="<?php echo base_url();?>/berita/view/<?php echo $value->id;?>">View</a> 
           <a class="btn btn-warning" href="<?php echo base_url();?>/berita/edit/<?php echo $value->id;?>">Edit</a> 
           <a class="btn btn-danger"  href="<?php echo base_url();?>/berita/delete/<?php echo $value->id;?>">Delete</a>
         </td>

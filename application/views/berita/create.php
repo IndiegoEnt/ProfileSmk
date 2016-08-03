@@ -32,15 +32,10 @@
     <label class="control-label">Kategori</label>
     <br>
     <select multiple data-role="tagsinput" id="kategoris" name="kategoris" class="form-control">
-      <option value="Amsterdam">Amsterdam</option>
-      <option value="Washington">Washington</option>
-      <option value="Sydney">Sydney</option>
-      <option value="Beijing">Beijing</option>
-      <option value="Cairo">Cairo</option>
+      
     </select>
     <input type="hidden" name="kategoris" id="kategori_container" />
   </div>
-  </br>
   </br>
   </br>
 
