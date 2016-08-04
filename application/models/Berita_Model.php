@@ -2,8 +2,13 @@
 
 	class Berita_Model extends CI_Model {
 
-		public function list_user() {
+		public function list_berita() {
 			$data = array('berita.active' => '1');
+			
+			if($this->session->userdata('role') == "ROLE_KAJUR"){
+				$data ['jurusan.id'] = $this->session->userdata('jurusan_id');
+			}
+
 			$this->db->select('berita.* , jurusan.nama as nama_jurusan');
 			$this->db->join('jurusan', 'jurusan.id = berita.jurusan_id', 'left');
 			$query = $this->db->get_where("berita" , $data);
@@ -25,16 +30,16 @@
 			$params['tanggal_buat'] = $currentDate;
 			$params['tanggal_edit'] = $currentDate;
 			$params['active'] = 1;
-			if($params['berita_type'] == 'BERITA_SEKOLAH'){
-				$params['jurusan_id'] = null;
-			}
 			if($this->session->userdata('role') == "ROLE_KAJUR"){
 				$params['berita_type'] = 'BERITA_JURUSAN';
 				$params['jurusan_id'] = $this->session->userdata('jurusan_id');
 			}
+			if($params['berita_type'] == 'BERITA_SEKOLAH'){
+				$params['jurusan_id'] = null;
+			}
 			$params['image'] =  $this->uploadFile($ci , md5("THUMB_" . $currentDate ));
 			if(!$params['image']){
-				unset($params['image']);
+				$params['image'] = 'noimage.png';
 			}
 			$params['user_id'] = $this->session->userdata('id');
             $kategoris = $params['kategoris'];

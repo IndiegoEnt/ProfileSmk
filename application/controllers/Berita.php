@@ -8,8 +8,6 @@ class Berita extends CI_Controller {
 		parent::__construct();
         if(!$this->session->userdata('logged_in')){
             redirect('Auth');
-        }else if($this->session->userdata('role') == 'ROLE_ADMIN'){
-            redirect('Dashboard');
         }
 	}
     
@@ -18,7 +16,7 @@ class Berita extends CI_Controller {
         
         $data = array(
             'title' => 'Table Users',
-            'tableData' => $this->Berita_Model->list_user()
+            'tableData' => $this->Berita_Model->list_berita()
         );
         
         $this->template->content->view('berita/index', $data);
