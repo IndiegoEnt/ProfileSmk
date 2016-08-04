@@ -8,8 +8,6 @@ class Berita extends CI_Controller {
 		parent::__construct();
         if(!$this->session->userdata('logged_in')){
             redirect('Auth');
-        }else if($this->session->userdata('role') == 'ROLE_ADMIN'){
-            redirect('Dashboard');
         }
 	}
     
@@ -18,7 +16,7 @@ class Berita extends CI_Controller {
         
         $data = array(
             'title' => 'Table Users',
-            'tableData' => $this->Berita_Model->list_user()
+            'tableData' => $this->Berita_Model->list_berita()
         );
         
         $this->template->content->view('berita/index', $data);
@@ -34,7 +32,8 @@ class Berita extends CI_Controller {
         $data = array(
             'title' => 'Create User',
             'userModel' => $this->Berita_Model->create_model(),
-            'jurusans' => $this->jurusan_model->list_jurusan()
+            'jurusans' => $this->jurusan_model->list_jurusan(),
+            'role' => $this->session->userdata('role') 
         );
 
         
@@ -63,7 +62,8 @@ class Berita extends CI_Controller {
             'beritaModel' => $this->Berita_Model->get($id),
             'title' => 'Edit User',
             'jurusans' => $this->jurusan_model->list_jurusan(),
-            'kategoris' => $this->Kategori_Model->list_jurusan_by_berita_id($id)
+            'kategoris' => $this->Kategori_Model->list_jurusan_by_berita_id($id),
+            'role' => $this->session->userdata('role') 
         );
 
         $this->template->content->view('berita/edit', $data);

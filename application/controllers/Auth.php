@@ -12,7 +12,8 @@ class Auth extends CI_Controller {
 
 	public function cek_login() {
 		$data = array('username' => $this->input->post('username', TRUE),
-					  'password' => md5($this->input->post('password', TRUE))
+					  'password' => md5($this->input->post('password', TRUE)) , 
+					  'active' => '1'
 			);
 
 		$this->load->model('user'); // load model_user
@@ -24,6 +25,8 @@ class Auth extends CI_Controller {
 				$sess_data['nama'] = $sess->nama;
 				$sess_data['username'] = $sess->username;
 				$sess_data['active'] = $sess->active;
+				$sess_data['jurusan_id'] = $sess->jurusan_id;
+				$sess_data['role'] = $sess->role;
 				$this->session->set_userdata($sess_data);
 			}
 			if ($this->session->userdata('active')==1) {

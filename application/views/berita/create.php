@@ -1,4 +1,5 @@
 <form action="<?php echo base_url();?>/berita/create_save" method="post"  enctype="multipart/form-data">
+  <?php if($role == 'ROLE_ADMIN') { ?>
   <div class="form-group">
     <label for="berita_type">Jenis Berita</label>
     <select class="form-control" id="berita_type" name="berita_type" required>
@@ -16,6 +17,7 @@
         <?php } ?>
     </select>
   </div>
+  <?php } ?>
   <div class="form-group">
     <label for="judul">Judul</label>
     <input type="text" class="form-control" id="judul" placeholder="judul" name="judul" required>
