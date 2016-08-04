@@ -54,9 +54,13 @@
 	<div id="contents">
 		<div id="tagline" class="clearfix">
 			<div class="main-tagline">
-			<h1>Profile Skolah</h1>
+			<h1>Profile Sekolah</h1>
 				<p>
-					You can replace all this text with your own text. Want an easier solution for a Free Website?
+					<?php foreach ($tableData as $key => $value) {
+						echo ($value->isi);
+					}
+
+						?>
 				</p>
 				<p>
 					Head straight to Wix and immediately start customizing your website!

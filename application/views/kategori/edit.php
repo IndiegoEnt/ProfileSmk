@@ -6,7 +6,7 @@
   </div>
   <div class="form-group">
     <label for="kategori_keterangan">Keterangan Kategori</label>
-    <input type="text" class="form-control" id="keterangan" placeholder="Keterangan Kategori"  value="<?php echo ($kategoriModel->keterangan); ?>" name="keterangan" required>
+    <textarea class="form-control" id="kategori_keterangan" placeholder="Keterangan Kategori" name="keterangan" style="height:200px;"></textarea>
   </div>
   <button type="submit" class="btn btn-default" id="button-submit">Submit</button>
 </form>
