@@ -28,6 +28,17 @@
     <label class="control-label">Cover</label>
     <input id="input-1" type="file" class="file" name="image">
   </div>
+  <div class="form-group">
+    <label class="control-label">Kategori</label>
+    <br>
+    <select multiple data-role="tagsinput" id="kategoris" name="kategoris" class="form-control">
+      
+    </select>
+    <input type="hidden" name="kategoris" id="kategori_container" />
+  </div>
+  </br>
+  </br>
+
   
   
 
@@ -66,6 +77,11 @@
         showCaption: false,
         showRemove: false,
         showUpload: false
+    });
+    $('#kategoris').on('itemAdded', function(event) {
+      $('#kategori_container').val($(this).val())
+    }).on('itemRemoved', function(event) {
+      $('#kategori_container').val($(this).val())
     });
     
 </script>

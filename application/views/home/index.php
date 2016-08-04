@@ -56,9 +56,11 @@
 			<div class="main-tagline">
 			<h1>Profile Sekolah</h1>
 				<p>
-					<?php 
-						echo ($isi);
-					?>
+					<?php foreach ($tableData as $key => $value) {
+						echo ($value->isi);
+					}
+
+						?>
 				</p>
 				<p>
 					Head straight to Wix and immediately start customizing your website!

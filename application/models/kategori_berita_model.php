@@ -22,4 +22,24 @@
 			$this->db->insert('kategori_berita', $params);
 			return $params;
 		}
+
+		public function save_batch($batch , $berita_id){
+			$batch = explode(',', $batch);
+			$this->load->model('Kategori_Model');
+			
+			$this->db->where('berita_id', $berita_id );
+			$this->db->delete('kategori_berita');
+			foreach ($batch as $key => $value) {
+				$id = "";
+				$kategori = $this->Kategori_Model->get_by_name($value);
+				if($kategori){
+					$id = $kategori->id;
+				}else{
+					$id = $this->Kategori_Model->save(array('nama' => $value , 'keterangan'=> ''));
+				}
+				if($id){
+					$this->save(array('kategori_id' => $id , 'berita_id'=> $berita_id));
+				}
+			}
+		}
 	}

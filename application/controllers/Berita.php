@@ -45,53 +45,64 @@ class Berita extends CI_Controller {
         $this->template->publish();
     }
 
-    public function check_username($username) {
-        $this->load->model('user');
-        
-        $data = array(
-            'status' => $this->user->check_username($username)
-        );
-
-        echo json_encode ($data);
-    }
 
     public function create_save() {
         $this->load->model('Berita_Model');
 
-        $this->Berita_Model->save($this->input->post() , $_FILES['image']);
+        $this->Berita_Model->save($this->input->post() , $this);
 
         redirect('Berita');
     }
 
     public function edit($id) {
-        $this->load->model('user');
+        $this->load->model('Berita_Model');
         $this->load->model('jurusan_model');
+        $this->load->model('Kategori_Model');
 
         $data = array(
-            'userModel' => $this->user->get($id),
+            'beritaModel' => $this->Berita_Model->get($id),
             'title' => 'Edit User',
-            'jurusans' => $this->jurusan_model->list_jurusan()
+            'jurusans' => $this->jurusan_model->list_jurusan(),
+            'kategoris' => $this->Kategori_Model->list_jurusan_by_berita_id($id)
         );
 
-        $this->template->content->view('users/edit', $data);
+        $this->template->content->view('berita/edit', $data);
+        
+        // Publish the template
+        $this->template->publish();
+    }
+
+    public function view($id) {
+        $this->load->model('Berita_Model');
+        $this->load->model('jurusan_model');
+        $this->load->model('Kategori_Model');
+
+        $data = array(
+            'beritaModel' => $this->Berita_Model->get($id),
+            'title' => 'Edit User',
+            'jurusans' => $this->jurusan_model->list_jurusan(),
+            'kategoris' => $this->Kategori_Model->list_jurusan_by_berita_id($id)
+        );
+
+        $this->template->content->view('home/layout/berita/view_berita', $data);
         
         // Publish the template
         $this->template->publish();
     }
 
     public function edit_save() {
-        $this->load->model('user');
+        $this->load->model('Berita_Model');
 
-        $this->user->update($this->input->post());
+        $this->Berita_Model->update($this->input->post() , $this);
 
-        redirect('Users');
+        redirect('Berita');
     }
 
     public function delete($id) {
-        $this->load->model('user');
+        $this->load->model('Berita_Model');
 
-        $this->user->delete($id);
+        $this->Berita_Model->delete($id);
 
-        redirect('Users');
+        redirect('Berita');
     }
 }
