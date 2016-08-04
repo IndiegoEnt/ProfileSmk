@@ -6,8 +6,7 @@
       <h2 class="pull-right"><a class="btn btn-primary" href="<?php echo base_url();?>ekskul/create">Tambah</a> </h2>
     </div> 
   </div>
-  <div class="table-responsive">
-  <table class="table table-bordered table-hover">
+  <table class="table table-bordered table-hover" id="myTable">
     <thead>
       <tr>
         <th>#</th>
@@ -38,4 +37,9 @@
     <?php }?>
     </tbody>
   </table>
-  </div>
+  
+  <script>
+    $(document).ready(function(){
+        $('#myTable').DataTable();
+    });
+  </script>
