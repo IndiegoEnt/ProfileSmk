@@ -1,7 +1,8 @@
 <form action="<?php echo base_url();?>/berita/edit_save" method="post"  enctype="multipart/form-data">
-  <div class="form-group">
     <input type="hidden" value="<?php echo ($beritaModel->id); ?>" name="id">
-  
+   <?php if($role == 'ROLE_ADMIN') { ?>
+ 
+  <div class="form-group">
     <label for="berita_type">Jenis Berita</label>
     <select class="form-control" id="berita_type" name="berita_type" required>
         <option value="" >Pilih Jenis Berita</option>
@@ -18,6 +19,7 @@
         <?php } ?>
     </select>
   </div>
+  <?php } ?>
   <div class="form-group">
     <label for="judul">Judul</label>
     <input type="text" class="form-control" id="judul" placeholder="judul" name="judul" required value="<?php echo ($beritaModel->judul); ?>">

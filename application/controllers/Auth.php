@@ -24,6 +24,7 @@ class Auth extends CI_Controller {
 				$sess_data['nama'] = $sess->nama;
 				$sess_data['username'] = $sess->username;
 				$sess_data['active'] = $sess->active;
+				$sess_data['jurusan_id'] = $sess->jurusan_id;
 				$this->session->set_userdata($sess_data);
 			}
 			if ($this->session->userdata('active')==1) {
