@@ -91,7 +91,6 @@
 			return $query->row();
 		}
 
-		
 		public function uploadFile($ci , $currentDate){
 			$config['file_name'] = $currentDate;
 			$config['upload_path']   = './upload/'; 
