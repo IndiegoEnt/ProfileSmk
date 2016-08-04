@@ -28,9 +28,13 @@
 			if($params['berita_type'] == 'BERITA_SEKOLAH'){
 				$params['jurusan_id'] = null;
 			}
+			if($this->session->userdata('role') == "ROLE_KAJUR"){
+				$params['berita_type'] = 'BERITA_JURUSAN';
+				$params['jurusan_id'] = $this->session->userdata('jurusan_id');
+			}
 			$params['image'] =  $this->uploadFile($ci , md5("THUMB_" . $currentDate ));
-			if(!$data['image']){
-				$params['image'] = 'noimage.png';
+			if(!$params['image']){
+				unset($params['image']);
 			}
 			$params['user_id'] = $this->session->userdata('id');
             $kategoris = $params['kategoris'];
@@ -58,6 +62,10 @@
 			);
 			if($data['berita_type'] == 'BERITA_SEKOLAH'){
 				$data['jurusan_id'] = null;
+			}
+			if($this->session->userdata('role') == "ROLE_KAJUR"){
+				$data['berita_type'] = 'BERITA_JURUSAN';
+				$data['jurusan_id'] = $this->session->userdata('jurusan_id');
 			}
 			$data['user_id'] = $this->session->userdata('id');
 			
