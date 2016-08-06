@@ -7,7 +7,7 @@
     </div> 
   </div>
   <div class="table-responsive">
-  <table class="table table-bordered table-hover">
+  <table class="table table-bordered table-hover" id="myTable">
     <thead>
       <tr>
         <th>#</th>
@@ -35,3 +35,8 @@
     </tbody>
   </table>
   </div>
+  <script>
+    $(document).ready(function(){
+        $('#myTable').DataTable();
+    });
+  </script>
