@@ -18,7 +18,7 @@ class Migration_Add_missing_table_column extends CI_Migration {
             $this->dbforge->add_column('berita', $fields); 
             $fields = array(
                  'logo' => array('type' => 'VARCHAR',
-                                       'constraint' => '20',
+                                       'constraint' => '40',
                                        'null' => FALSE)
             );
             $this->dbforge->add_column('profile', $fields);

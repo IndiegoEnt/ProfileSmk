@@ -88,6 +88,7 @@
             <li><a href="<?php echo base_url(); ?>berita">Berita</a></li>
             <li><a href="<?php echo base_url(); ?>Kategori">Kategori</a></li>
             <li><a href="<?php echo base_url(); ?>ekskul">Ekskul</a></li>
+            <li><a href="<?php echo base_url(); ?>Event">Event</a></li>
             <li><a href="<?php echo base_url(); ?>jurusan">Jurusan</a></li>
            
           </ul>

@@ -8,8 +8,6 @@ class Users extends CI_Controller {
 		parent::__construct();
         if(!$this->session->userdata('logged_in')){
             redirect('Auth');
-        }else if($this->session->userdata('role') == 'ROLE_ADMIN'){
-            redirect('Dashboard');
         }
 	}
     
