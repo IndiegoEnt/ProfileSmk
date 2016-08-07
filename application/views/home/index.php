@@ -62,12 +62,6 @@
 
 						?>
 				</p>
-				<p>
-					Head straight to Wix and immediately start customizing your website!
-				</p>
-				<p>
-					Wix is an online website builder with a simple drag & drop interface, meaning you do the work online and instantly publish to the web.
-				</p>
 			</div>
 			<div class="second-tagline">
 				<h1>Berita Terkini</h1>
