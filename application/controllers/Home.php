@@ -10,7 +10,8 @@ class Home extends CI_Controller {
             'header' =>  $this->load->view('home/layout/header' , false, true) ,
             'nav' =>  $this->load->view('home/layout/nav' , false, true) ,
             'foot' =>  $this->load->view('home/layout/foot' , false, true) ,
-            'tableData' => $this->Index_Model->profile_sekolah()
+            'tableData' => $this->Index_Model->profile_sekolah() ,
+            'beritaData' => $this->Index_Model->berita()
 
         );
         $this->load->view('home/index' , $template);

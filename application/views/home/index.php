@@ -72,19 +72,14 @@
 			<div class="second-tagline">
 				<h1>Berita Terkini</h1>
 				<ul class="posts">
+					<?php foreach ($beritaData as $key => $value) {?>
 				<li>
-					<h4 class="title"><a href="post.html">Making It Work</a></h4>
+					<h4 class="title"><a href="post.html"><?php echo ($value->judul);?></a></h4>
 					<p>
-						I'm a paragraph. Click here to add your own text and edit me. I’m a great place for you to tell a story and let your users know a little more about you.
+						<?php echo ($value->isi);?>
 					</p>
 				</li>
-				<li>
-					<h4 class="title"><a href="post.html">Designs and Concepts</a></h4>
-					<p>
-						I'm a paragraph. Click here to add your own text and edit me. I’m a great place for you to tell a story and let your users know a little more about you.
-					</p>
-				</li>
-				
+				<?php } ?>
 			</ul>
 		</div>
 			</div>

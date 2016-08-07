@@ -7,5 +7,9 @@
 					$data = array('id');
 					$query = $this->db->get_where("profile" , $data);
 					return $query->result();
-				}
+		}
+		public function berita() {
+					$query = $this->db->query("select * from berita order by tanggal_buat desc limit 2");
+					return $query->result();
+		}
 	}
