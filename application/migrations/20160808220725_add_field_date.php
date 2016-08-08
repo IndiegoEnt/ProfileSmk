@@ -19,7 +19,7 @@ class Migration_Add_field_date extends CI_Migration {
                         'constraint' => 5,
                 )
             );
-            $this->dbforge->modify_column('galery', $fields);
+            $this->dbforge->add_column('galery', $fields);
         }
 
         public function down()
