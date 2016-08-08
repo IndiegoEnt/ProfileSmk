@@ -15,7 +15,7 @@ class Event extends CI_Controller {
         $this->load->model('Event_Model');
         
         $data = array(
-            'title' => 'Table Users',
+            'title' => 'Table Event',
             'tableData' => $this->Event_Model->list_event()
         );
         
@@ -38,7 +38,7 @@ class Event extends CI_Controller {
 
         
 
-        $this->template->content->view('berita/create', $data);
+        $this->template->content->view('event/create', $data);
         
         // Publish the template
         $this->template->publish();
@@ -66,7 +66,7 @@ class Event extends CI_Controller {
             'role' => $this->session->userdata('role') 
         );
 
-        $this->template->content->view('berita/edit', $data);
+        $this->template->content->view('event/edit', $data);
         
         // Publish the template
         $this->template->publish();

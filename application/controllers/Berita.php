@@ -15,7 +15,7 @@ class Berita extends CI_Controller {
         $this->load->model('Berita_Model');
         
         $data = array(
-            'title' => 'Table Users',
+            'title' => 'Table Berita',
             'tableData' => $this->Berita_Model->list_berita()
         );
         
