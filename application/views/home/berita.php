@@ -30,7 +30,7 @@
 					</div>
 					<h2><?php echo ($value->judul); ?> <span><?php echo ($value->username); ?></span></h2>
 					<p>
-						<?php echo ($value->isi); ?><span><a href="post.html" class="more">Read More</a></span>
+						<img src="<?php echo base_url();?>upload/<?php echo $value->image?>" width="100px"><?php echo ($value->isi); ?><span><a href="post.html" class="more">Read More</a></span>
 					</p>
 				</li>
 				<?php } ?>
