@@ -1,7 +1,6 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 	class Berita_Model extends CI_Model {
-
 		public function list_berita() {
 			$data = array('berita.active' => '1');
 			
@@ -9,8 +8,9 @@
 				$data ['jurusan.id'] = $this->session->userdata('jurusan_id');
 			}
 
-			$this->db->select('berita.* , jurusan.nama as nama_jurusan');
+			$this->db->select('berita.* , jurusan.nama as nama_jurusan , users.username as username');
 			$this->db->join('jurusan', 'jurusan.id = berita.jurusan_id', 'left');
+			$this->db->join('users', 'users.id = berita.user_id', 'left');
 			$query = $this->db->get_where("berita" , $data);
 			return $query->result();
 		}

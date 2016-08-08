@@ -4,12 +4,17 @@
 
 
 		public function profile_sekolah() {
-					$data = array('id');
+					$data = array('profile.profile_type' => 'profile_sekolah');
 					$query = $this->db->get_where("profile" , $data);
 					return $query->result();
 		}
 		public function berita() {
-					$query = $this->db->query("select * from berita order by tanggal_buat desc limit 2");
+					$query = $this->db->query("select * from berita order by id desc limit 2");
+					return $query->result();
+		}
+		public function isi_jurusan() {
+					$data = array('profile.profile_type' => 'profile_jurusan');
+					$query = $this->db->get_where("profile" , $data);
 					return $query->result();
 		}
 	}

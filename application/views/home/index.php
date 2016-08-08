@@ -55,7 +55,8 @@
 		<div id="tagline" class="clearfix">
 			<div class="main-tagline">
 			<h1>Profile Sekolah</h1>
-				<p>
+			
+				<p><img src="<?php echo base_url() ?>assets/zerotype/images/logo.png" alt="Img" width="100px">
 					<?php foreach ($tableData as $key => $value) {
 						echo ($value->isi);
 					}
