@@ -34,7 +34,7 @@ class Home extends CI_Controller {
             'header' =>  $this->load->view('home/layout/header' , false, true) ,
             'nav' =>  $this->load->view('home/layout/nav' , false, true) ,
             'foot' =>  $this->load->view('home/layout/foot' , false, true) ,
-            'tableData' => $this->Berita_Model->list_berita() 
+            'tableData' => $this->Berita_Model->list_berita_home() 
         );
         $this->load->view('home/berita' , $template);
     }
