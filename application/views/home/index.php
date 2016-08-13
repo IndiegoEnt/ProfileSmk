@@ -69,7 +69,7 @@
 				<ul class="posts">
 					<?php foreach ($beritaData as $key => $value) {?>
 				<li>
-					<h4 class="title"><a href="post.html"><?php echo ($value->judul);?></a></h4>
+					<h4 class="title"><a href="<?php echo base_url();?>home/view_berita_home/<?php echo $value->id;?>"><?php echo ($value->judul);?></a></h4>
 					<p>
 						<?php echo ($value->isi);?>
 					</p>
