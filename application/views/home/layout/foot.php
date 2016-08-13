@@ -2,6 +2,6 @@
 			<div id="connect">
 			</div>
 			<p>
-				© 2023 Zerotype. All Rights Reserved.
+				©<?php echo date("Y");?>  SMKN 2 Cimahi. All Rights Reserved.
 			</p>
 		</div>

@@ -1,20 +1,9 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-	class Berita_Model extends CI_Model {
-		public function list_berita_home() {
-			$data = array('berita.active' => '1');
-			$this->db->select('berita.* , users.username as username');
-			$this->db->join('users', 'users.id = berita.user_id', 'left');
-			$query = $this->db->get_where("berita" , $data);
-			return $query->result();
-		}
-		public function list_berita() {
-			$data = array('berita.active' => '1');
-			
-			if($this->session->userdata('role') == "ROLE_KAJUR"){
-				$data ['jurusan.id'] = $this->session->userdata('jurusan_id');
-			}
+	class Event_Model extends CI_Model {
 
+		public function list_event() {
+			$data = array('berita.active' => '1');
 			$this->db->select('berita.* , jurusan.nama as nama_jurusan');
 			$this->db->join('jurusan', 'jurusan.id = berita.jurusan_id', 'left');
 			$query = $this->db->get_where("berita" , $data);
@@ -36,16 +25,16 @@
 			$params['tanggal_buat'] = $currentDate;
 			$params['tanggal_edit'] = $currentDate;
 			$params['active'] = 1;
+			if($params['berita_type'] == 'BERITA_SEKOLAH'){
+				$params['jurusan_id'] = null;
+			}
 			if($this->session->userdata('role') == "ROLE_KAJUR"){
 				$params['berita_type'] = 'BERITA_JURUSAN';
 				$params['jurusan_id'] = $this->session->userdata('jurusan_id');
 			}
-			if($params['berita_type'] == 'BERITA_SEKOLAH'){
-				$params['jurusan_id'] = null;
-			}
 			$params['image'] =  $this->uploadFile($ci , md5("THUMB_" . $currentDate ));
 			if(!$params['image']){
-				$params['image'] = 'noimage.png';
+				unset($params['image']);
 			}
 			$params['user_id'] = $this->session->userdata('id');
             $kategoris = $params['kategoris'];
@@ -110,6 +99,7 @@
 			return $query->row();
 		}
 
+		
 		public function uploadFile($ci , $currentDate){
 			$config['file_name'] = $currentDate;
 			$config['upload_path']   = './upload/'; 

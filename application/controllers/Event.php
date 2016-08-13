@@ -2,7 +2,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Berita extends CI_Controller {
+class Event extends CI_Controller {
 
     function __construct(){
 		parent::__construct();
@@ -12,33 +12,33 @@ class Berita extends CI_Controller {
 	}
     
     public function index() {
-        $this->load->model('Berita_Model');
+        $this->load->model('Event_Model');
         
         $data = array(
-            'title' => 'Table Berita',
-            'tableData' => $this->Berita_Model->list_berita()
+            'title' => 'Table Event',
+            'tableData' => $this->Event_Model->list_event()
         );
         
-        $this->template->content->view('berita/index', $data);
+        $this->template->content->view('event/index', $data);
         
         // Publish the template
         $this->template->publish();
     }
 
     public function create() {
-        $this->load->model('Berita_Model');
+        $this->load->model('Event_Model');
         $this->load->model('jurusan_model');
         
         $data = array(
             'title' => 'Create User',
-            'userModel' => $this->Berita_Model->create_model(),
+            'userModel' => $this->Event_Model->create_model(),
             'jurusans' => $this->jurusan_model->list_jurusan(),
             'role' => $this->session->userdata('role') 
         );
 
         
 
-        $this->template->content->view('berita/create', $data);
+        $this->template->content->view('event/create', $data);
         
         // Publish the template
         $this->template->publish();
@@ -46,39 +46,39 @@ class Berita extends CI_Controller {
 
 
     public function create_save() {
-        $this->load->model('Berita_Model');
+        $this->load->model('Event_Model');
 
-        $this->Berita_Model->save($this->input->post() , $this);
+        $this->Event_Model->save($this->input->post() , $this);
 
         redirect('Berita');
     }
 
     public function edit($id) {
-        $this->load->model('Berita_Model');
+        $this->load->model('Event_Model');
         $this->load->model('jurusan_model');
         $this->load->model('Kategori_Model');
 
         $data = array(
-            'beritaModel' => $this->Berita_Model->get($id),
+            'beritaModel' => $this->Event_Model->get($id),
             'title' => 'Edit User',
             'jurusans' => $this->jurusan_model->list_jurusan(),
             'kategoris' => $this->Kategori_Model->list_jurusan_by_berita_id($id),
             'role' => $this->session->userdata('role') 
         );
 
-        $this->template->content->view('berita/edit', $data);
+        $this->template->content->view('event/edit', $data);
         
         // Publish the template
         $this->template->publish();
     }
 
     public function view($id) {
-        $this->load->model('Berita_Model');
+        $this->load->model('Event_Model');
         $this->load->model('jurusan_model');
         $this->load->model('Kategori_Model');
 
         $data = array(
-            'beritaModel' => $this->Berita_Model->get($id),
+            'beritaModel' => $this->Event_Model->get($id),
             'title' => 'Edit User',
             'jurusans' => $this->jurusan_model->list_jurusan(),
             'kategoris' => $this->Kategori_Model->list_jurusan_by_berita_id($id)
@@ -91,17 +91,17 @@ class Berita extends CI_Controller {
     }
 
     public function edit_save() {
-        $this->load->model('Berita_Model');
+        $this->load->model('Event_Model');
 
-        $this->Berita_Model->update($this->input->post() , $this);
+        $this->Event_Model->update($this->input->post() , $this);
 
         redirect('Berita');
     }
 
     public function delete($id) {
-        $this->load->model('Berita_Model');
+        $this->load->model('Event_Model');
 
-        $this->Berita_Model->delete($id);
+        $this->Event_Model->delete($id);
 
         redirect('Berita');
     }
