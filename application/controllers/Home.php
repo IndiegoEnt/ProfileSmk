@@ -36,6 +36,23 @@ class Home extends CI_Controller {
         );
         $this->load->view('home/berita' , $template);
     }
+    public function view_berita_home($id) {
+        $this->load->model('Berita_Model');
+        $this->load->model('jurusan_model');
+        $this->load->model('Kategori_Model');
+        $template = array(
+            'header' =>  $this->load->view('home/layout/header' , false, true) ,
+            'nav' =>  $this->load->view('home/layout/nav' , false, true) ,
+            'foot' =>  $this->load->view('home/layout/foot' , false, true) ,
+            'beritaModel' => $this->Berita_Model->get($id), 
+            'title' => 'Edit User',
+            'jurusans' => $this->jurusan_model->list_jurusan(),
+            'kategoris' => $this->Kategori_Model->list_jurusan_by_berita_id($id)
+        );
+
+        $this->load->view('home/view_berita_home', $template);
+       
+    }
     public function sarana() {
         $template = array(
             'header' =>  $this->load->view('home/layout/header' , false, true) ,

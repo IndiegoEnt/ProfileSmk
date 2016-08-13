@@ -29,9 +29,9 @@
 						</p>
 					</div>
 					<h2><?php echo ($value->judul); ?> <span><?php echo ($value->username); ?></span></h2>
-					<p>
-						<img src="<?php echo base_url();?>upload/<?php echo $value->image?>" width="100px"><?php echo ($value->isi); ?><span><a href="post.html" class="more">Read More</a></span>
-					</p>
+					
+						<img src="<?php echo base_url();?>upload/<?php echo $value->image?>" width="100px"><?php echo ($value->isi); ?><span><a href="<?php echo base_url();?>home/view_berita_home/<?php echo $value->id;?>" class="more">Read More</a></span>
+					
 				</li>
 				<?php } ?>
 			</ul>
