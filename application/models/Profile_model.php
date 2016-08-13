@@ -11,6 +11,7 @@
 			$this->db->select('profile.* , jurusan.nama as nama_jurusan, users.username');
 			$this->db->join('users', 'users.id = profile.user_id');
 			$this->db->join('jurusan', 'jurusan.id = profile.jurusan_id','left');
+			$this->db->where('profile.active', 1 );
 			$query = $this->db->get("profile");
 			return $query->result();
 		}
@@ -27,6 +28,7 @@
 		}
 
 		public function save($params) {
+			$params['active'] = 1;
 			$params['profile_type'] = $params['profile_type'];
 			$params['jurusan_id'] = $params['jurusan_id'];
 			$params['isi'] = $params['isi'];
