@@ -20,54 +20,15 @@
 		<div class="features">
 			<h1>Jurusan</h1>
 			<div>
-				<img src="<?php echo base_url() ?>assets/zerotype/images/logo.png" alt="Img" width="100px">
+				
 				<?php foreach ($tableData as $key => $value) {?>
-				<h2><?php echo ($value->nama); ?></h2>
-				<p>
-					Kompetensi Keahlian Teknik Mekatronika merupakan Kompetensi Keahlian di bawah Bidang Studi Keahlian Teknologi dan Rekayasa. Dimana para Peserta Didik akan dibekali ilmu tentang Kelistrikan, Elektronika, Permesinan, Kontrol Mekanik,CNC dan Robotic.
-				</p>
-				<?php } ?>
-			</div>
-			
-			<div>
-				<img src="<?php echo base_url() ?>assets/zerotype/images/logo.png" alt="Img" width="100px">
-				<h2>Rekayasa Perangkat Lunak</h2>
-				<p>
-
-					Kompetensi Keahlian Teknik Mekatronika merupakan Kompetensi Keahlian di bawah Bidang Studi Keahlian Teknologi dan Rekayasa. Dimana para Peserta Didik akan dibekali ilmu tentang Kelistrikan, Elektronika, Permesinan, Kontrol Mekanik,CNC dan Robotic.
-				</p>
+				<img src="<?php echo base_url() ?>assets/zerotype/images/logo.png" alt="Img" width="100px"><br>
+				<h2><?php echo ($value->nama); ?></h2><br>
+				
+					<?php echo ($value->isi); ?><br>
 				
 			</div>
-			
-			<div>
-				<img src="<?php echo base_url() ?>assets/zerotype/images/logo.png" alt="Img" width="100px">
-				<h2>Multimedia</h2>
-				<p>
-
-					Kompetensi Keahlian Teknik Mekatronika merupakan Kompetensi Keahlian di bawah Bidang Studi Keahlian Teknologi dan Rekayasa. Dimana para Peserta Didik akan dibekali ilmu tentang Kelistrikan, Elektronika, Permesinan, Kontrol Mekanik,CNC dan Robotic.
-				</p>
-				
-			</div>
-			
-			<div>
-				<img src="<?php echo base_url() ?>assets/zerotype/images/logo.png" alt="Img" width="100px">
-				<h2>Animasi</h2>
-				<p>
-
-					Kompetensi Keahlian Teknik Mekatronika merupakan Kompetensi Keahlian di bawah Bidang Studi Keahlian Teknologi dan Rekayasa. Dimana para Peserta Didik akan dibekali ilmu tentang Kelistrikan, Elektronika, Permesinan, Kontrol Mekanik,CNC dan Robotic.
-				</p>
-				
-			</div>
-			
-			<div>
-				<img src="<?php echo base_url() ?>assets/zerotype/images/logo.png" alt="Img" width="100px">
-				<h2>Kimia Industri</h2>
-				<p>
-
-					Kompetensi Keahlian Teknik Mekatronika merupakan Kompetensi Keahlian di bawah Bidang Studi Keahlian Teknologi dan Rekayasa. Dimana para Peserta Didik akan dibekali ilmu tentang Kelistrikan, Elektronika, Permesinan, Kontrol Mekanik,CNC dan Robotic.
-				</p>
-				
-			</div>
+			<?php } ?>
 			
 		</div>
 	</div>

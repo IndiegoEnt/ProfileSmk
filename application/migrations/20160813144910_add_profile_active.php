@@ -11,6 +11,7 @@ class Migration_Add_profile_active extends CI_Migration {
                  'active' => array('type' => 'INT',
                                        'constraint' => '5',
                                        'null' => FALSE),
+                
             );
             $this->dbforge->add_column('profile', $fields); 
         }
