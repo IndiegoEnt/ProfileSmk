@@ -42,4 +42,22 @@ class Profile extends CI_Controller {
         $this->profile_model->save($this->input->post());
         redirect('Profile');
     }
+	public function check_profile($jurusan_id) {
+        $data = array(
+            'status' => $this->profile_model->check_profile($jurusan_id)
+        );
+
+        echo json_encode ($data);
+    }
+	public function check_profile_type($profile_type) {
+        $data = array(
+            'status' => $this->profile_model->check_profile_type($profile_type)
+        );
+
+        echo json_encode ($data);
+    }
+	public function delete($id) {
+        $this->profile_model->delete($id);
+        redirect('Profile');
+    }
 }
