@@ -26,9 +26,9 @@
 				<h2><?php echo ($value->nama); ?></h2><br>
 				
 					<?php echo ($value->isi); ?><br>
-				
+					<?php } ?>
 			</div>
-			<?php } ?>
+			
 			
 		</div>
 	</div>
