@@ -2,7 +2,6 @@
 
 	class Galeri_Model extends CI_Model {
 		
-		/*
 		public function list_galeri_home() {
 			$data = array('galeri.active' => '1');
 			$this->db->select('galeri.* , users.username as username');
@@ -10,10 +9,10 @@
 			$query = $this->db->get_where("galeri" , $data);
 			return $query->result();
 		}
-		*/
+
 		public function list_galeri() {
 			$data = array('active' => '1');
-			$query = $this->db->get_where("galery" , $data);
+			$query = $this->db->get_where("galeri" , $data);
 			return $query->result();
 		}
 
@@ -39,7 +38,7 @@
 			}
 			$params['user_id'] = $this->session->userdata('id');
 			
-			$this->db->insert('galery', $params);
+			$this->db->insert('galeri', $params);
 			return $params;
 		}
 
@@ -59,7 +58,7 @@
 		}
 
     	public function  get($id) {
-			$query = $this->db->get_where("Galery" , array('id' => $id));
+			$query = $this->db->get_where("galeri" , array('id' => $id));
 			return $query->row();
 		}
 
@@ -87,7 +86,7 @@
 
 			
 			$this->db->where('id', $params['id']);
-			$this->db->update('galery', $data);
+			$this->db->update('galeri', $data);
 			return $params;
 		}
 
@@ -95,7 +94,7 @@
 			$this->db->set('active', '0', FALSE);
 			$this->db->set('tanggal_edit', date('YmdHis'),  FALSE);
 			$this->db->where('id', $id );
-			$this->db->update('galery');
+			$this->db->update('galeri');
 			return $params;
 		}
 	}

@@ -14,6 +14,9 @@
 					<a href="<?php echo base_url()?>home/berita">Berita</a>
 				</li>
 				<li>
+					<a href="<?php echo base_url()?>home/galery">Galery</a>
+				</li>
+				<li>
 					<a href="<?php echo base_url()?>home/sarana">Sarana</a>
 				</li>
 				<li>
