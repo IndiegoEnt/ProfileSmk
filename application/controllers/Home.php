@@ -54,12 +54,12 @@ class Home extends CI_Controller {
        
     }
     public function galery() {
-        $this->load->model('Berita_Model');
+        $this->load->model('Galeri_Model');
         $template = array(
             'header' =>  $this->load->view('home/layout/header' , false, true) ,
             'nav' =>  $this->load->view('home/layout/nav' , false, true) ,
             'foot' =>  $this->load->view('home/layout/foot' , false, true) ,
-            'beritaModel' => $this->Berita_Model->list_galeri_home()
+            'galeriModel' => $this->Galeri_Model->list_galeri_home()
         );
         $this->load->view('home/galery' , $template);
     }
