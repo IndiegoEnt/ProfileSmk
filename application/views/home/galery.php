@@ -5,6 +5,8 @@
     <?php
         echo($header);
     ?>
+<script type="text/javascript" src="<?php echo base_url() ?>assets/photoswipe/dist/photoswipe.js"></script>
+<link rel="stylesheet" href="<?php echo base_url() ?>assets/photoswipe/dist/photoswipe.css"></link>
 
 </head>
 <body>
@@ -22,7 +24,7 @@
 			<div>
 				
 				<?php foreach ($galeriModel as $key => $value) {?>
-                <?php var_dump($value);?>
+						<img src="<?php echo base_url();?>upload/<?php echo $value->image?>" width="200px">
                 <?php } ?>
 			</div>
 			
