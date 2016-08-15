@@ -26,6 +26,8 @@ class Event extends CI_Controller {
     }
 
     public function create() {
+
+        
         $this->load->model('Event_Model');
         $this->load->model('jurusan_model');
         
@@ -46,11 +48,12 @@ class Event extends CI_Controller {
 
 
     public function create_save() {
+       
         $this->load->model('Event_Model');
 
         $this->Event_Model->save($this->input->post() , $this);
 
-        redirect('Berita');
+        redirect('Event');
     }
 
     public function edit($id) {
@@ -59,10 +62,10 @@ class Event extends CI_Controller {
         $this->load->model('Kategori_Model');
 
         $data = array(
-            'beritaModel' => $this->Event_Model->get($id),
+            'eventModel' => $this->Event_Model->get($id),
             'title' => 'Edit User',
             'jurusans' => $this->jurusan_model->list_jurusan(),
-            'kategoris' => $this->Kategori_Model->list_jurusan_by_berita_id($id),
+            'event_galery' =>$this->Event_Model->getGaleryFromEvent($id),
             'role' => $this->session->userdata('role') 
         );
 
@@ -75,13 +78,12 @@ class Event extends CI_Controller {
     public function view($id) {
         $this->load->model('Event_Model');
         $this->load->model('jurusan_model');
-        $this->load->model('Kategori_Model');
 
         $data = array(
-            'beritaModel' => $this->Event_Model->get($id),
+            'eventModel' => $this->Event_Model->get($id),
             'title' => 'Edit User',
             'jurusans' => $this->jurusan_model->list_jurusan(),
-            'kategoris' => $this->Kategori_Model->list_jurusan_by_berita_id($id)
+            'event_galery' =>$this->Event_Model->getGaleryFromEvent($id)
         );
 
         $this->template->content->view('home/layout/berita/view_berita', $data);
@@ -95,7 +97,7 @@ class Event extends CI_Controller {
 
         $this->Event_Model->update($this->input->post() , $this);
 
-        redirect('Berita');
+        redirect('Event');
     }
 
     public function delete($id) {
@@ -103,6 +105,6 @@ class Event extends CI_Controller {
 
         $this->Event_Model->delete($id);
 
-        redirect('Berita');
+        redirect('Event');
     }
 }

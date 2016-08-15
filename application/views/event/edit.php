@@ -1,13 +1,13 @@
 <form action="<?php echo base_url();?>/event/edit_save" method="post"  enctype="multipart/form-data">
-    <input type="hidden" value="<?php echo ($beritaModel->id); ?>" name="id">
+    <input type="hidden" value="<?php echo ($eventModel->id); ?>" name="id">
    <?php if($role == 'ROLE_ADMIN') { ?>
  
   <div class="form-group">
-    <label for="berita_type">Jenis Berita</label>
-    <select class="form-control" id="berita_type" name="berita_type" required>
+    <label for="event_type">Jenis Event</label>
+    <select class="form-control" id="event_type" name="event_type" required>
         <option value="" >Pilih Jenis Berita</option>
-        <option value="BERITA_SEKOLAH" >Sekolah</option>
-        <option value="BERITA_JURUSAN" >Jurusan</option>
+        <option value="EVENT_SEKOLAH" >Sekolah</option>
+        <option value="EVENT_JURUSAN" >Jurusan</option>
     </select>
   </div> 
   <div class="form-group" id="jurusanContainer">
@@ -21,26 +21,16 @@
   </div>
   <?php } ?>
   <div class="form-group">
-    <label for="judul">Judul</label>
-    <input type="text" class="form-control" id="judul" placeholder="judul" name="judul" required value="<?php echo ($beritaModel->judul); ?>">
+    <label for="judul">Nama </label>
+    <input type="text" class="form-control" id="nama" placeholder="nama" name="nama" required value="<?php echo ($eventModel->nama); ?>">
   </div>
   <div class="form-group">
-    <label for="isi">Isi</label>
-    <textarea type="text" class="form-control" id="isi" placeholder="isi" name="isi" required > <?php echo ($beritaModel->isi); ?></textarea>
+    <label for="keterangan">Keterangan</label>
+    <textarea type="text" class="form-control" id="keterangan" placeholder="keterangan" name="keterangan" required > <?php echo ($eventModel->keterangan); ?></textarea>
   </div>
-  <div class="form-group" style="max-width: 300px;">
+  <div class="form-group" >
     <label class="control-label">Cover</label>
-    <input id="input-1" type="file" class="file" name="image">
-  </div>
-  <div class="form-group">
-    <label class="control-label">Kategori</label>
-    <br>
-    <select multiple data-role="tagsinput" id="kategoris" name="kategoris" class="form-control">
-     <?php foreach ($kategoris as $key => $value) {?>
-        <option value="<?php echo $value->nama ?>"><?php echo $value->nama ?></option>
-     <?php } ?>
-    </select>
-    <input type="hidden" name="kategoris" id="kategori_container" />
+    <input id="input-1" type="file" class="files[]" multiple name="files[]">
   </div>
   </br>
   </br>
@@ -52,8 +42,8 @@
 
 <script>
     $("form").validate();
-    $('#berita_type').change(function() {
-        if($(this).val() != 'BERITA_JURUSAN'){
+    $('#event_type').change(function() {
+        if($(this).val() != 'EVENT_JURUSAN'){
             $('#jurusanContainer').hide();
             $('#jurusan').prop('required' , false)
         }else{
@@ -61,9 +51,9 @@
             $('#jurusan').prop('required' , true)
         }
     })
-    $('#berita_type').val('<?php echo ($beritaModel->berita_type); ?>');
-    $('#berita_type').change();
-    $('#jurusan').val('<?php echo ($beritaModel->jurusan_id); ?>');
+    $('#event_type').val('<?php echo ($eventModel->event_type); ?>');
+    $('#event_type').change();
+    $('#jurusan').val('<?php echo ($eventModel->jurusan_id); ?>');
     $('#username').change(function(){
       $.ajax({
         url:'<?php echo base_url();?>/users/check_username/'+ $('#username').val(),
@@ -78,10 +68,15 @@
         }
       })
     });
-    CKEDITOR.replace( 'isi' );
+    CKEDITOR.replace( 'keterangan' );
     $("#input-1").fileinput({
         initialPreview: [
-            '<?php echo base_url();?>upload/<?php echo ($beritaModel->image); ?>',
+            <?php 
+            if($event_galery){
+            foreach ($event_galery as $key => $value) {
+              echo ("'".base_url()."upload/". $value->image . "'," );
+            }}
+            ?>
         ],
         initialPreviewAsData: true,
         browseClass: "btn btn-primary btn-block",
@@ -89,15 +84,4 @@
         showRemove: false,
         showUpload: false
     });
-    $('#kategoris').on('itemAdded', function(event) {
-      $('#kategori_container').val($(this).val())
-    }).on('itemRemoved', function(event) {
-      $('#kategori_container').val($(this).val())
-    });
-    
-    $(document).ready(function(){
-      console.log($('#kategoris').val());
-      $('#kategori_container').val($('#kategoris').val())
-    })
-    
 </script>

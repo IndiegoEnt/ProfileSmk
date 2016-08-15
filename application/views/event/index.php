@@ -9,9 +9,8 @@
   <table class="table table-bordered table-hover" id="myTable">
     <thead>
       <tr>
-        <th>Cover</th>
-        <th>Judul</th>
-        <th>Berita</th>
+        <th>Nama</th>
+        <th>Event</th>
         <th>Created Date</th>    
         <th>Updated Date</th>
         <th width="200px">Aksi</th>
@@ -20,9 +19,8 @@
     <tbody>
     <?php foreach ($tableData as $key => $value) { ?>
       <tr>
-        <td><img src="<?php echo base_url();?>upload/<?php echo $value->image?>" width="100px"></td>
-        <td><?php echo ($value->judul);?></td>
-        <td><?php echo ($value->berita_type == 'BERITA_JURUSAN' ? $value->nama_jurusan : 'Sekolah');?></td>
+        <td><?php echo ($value->nama);?></td>
+        <td><?php echo ($value->event_type == 'BERITA_JURUSAN' ? $value->nama_jurusan : 'Sekolah');?></td>
         <td><?php echo ($value->tanggal_buat);?></td>
         <td><?php echo ($value->tanggal_edit);?></td>
         <td>

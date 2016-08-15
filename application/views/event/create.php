@@ -34,7 +34,7 @@
   </div>
   <div class="form-group" >
     <label class="control-label">Cover</label>
-    <input id="input-1" name="file[]" type="file" multiple class="file-loading">
+    <input id="input-1" name="files[]" type="file" multiple class="file-loading">
     <div id="errorBlock" class="help-block"></div>
   </div>
   </br>
@@ -61,8 +61,6 @@
     CKEDITOR.replace( 'keterangan' );
     $("#input-1").fileinput({
         showUpload: false,
-        showBrowse: false,
-        uploadUrl: '/',
         maxFilePreviewSize: 10240
     });
     $('#kategoris').on('itemAdded', function(event) {
