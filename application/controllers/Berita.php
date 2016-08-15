@@ -89,6 +89,7 @@ class Berita extends CI_Controller {
         // Publish the template
         $this->template->publish();
     }
+    
 
     public function edit_save() {
         $this->load->model('Berita_Model');

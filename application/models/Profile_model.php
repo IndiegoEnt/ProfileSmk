@@ -8,7 +8,9 @@
 		}
 		
 		public function list_profile() {
+			$this->db->select('profile.* , jurusan.nama as nama_jurusan, users.username');
 			$this->db->join('users', 'users.id = profile.user_id');
+			$this->db->join('jurusan', 'jurusan.id = profile.jurusan_id','left');
 			$query = $this->db->get("profile");
 			return $query->result();
 		}
@@ -60,7 +62,7 @@
 			$this->db->set('active', '0', FALSE);
 			$this->db->set('tanggal_edit', date('YmdHis'),  FALSE);
 			$this->db->where('id', $id );
-			$this->db->update('users');
+			$this->db->update('profile');
 			return $params;
 		}
 
@@ -68,7 +70,15 @@
 			$query = $this->db->get_where("profile" , array('id' => $id));
 			return $query->row();
 		}
-
+		
+		public function  check_profile($jurusan_id) {
+			$query = $this->db->get_where("profile" , array('jurusan_id' => $jurusan_id));
+			return $query->row() ? '1' : '0';
+		}
+		public function  check_profile_type($profile_type) {
+			$query = $this->db->get_where("profile" , array('profile_type' => $profile_type));
+			return $query->row() ? '1' : '0';
+		}
 
 	}
 

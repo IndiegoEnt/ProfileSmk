@@ -1,7 +1,13 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 	class Jurusan_Model extends CI_Model {
-
+		public function isi_jurusan_home() {
+			$data = array('profile.active' => '1');
+			$this->db->select('jurusan.* , profile.isi as isi');
+			$this->db->join('profile', 'profile.jurusan_id = jurusan.id', 'left');
+			$query = $this->db->get_where("jurusan" , $data);
+			return $query->result();
+		}
 		public function list_jurusan() {
 			$query = $this->db->query("select * from jurusan where active = '1'");
 			return $query->result();
