@@ -5,18 +5,14 @@
     <?php
         echo($header);
     ?>
-<script src="http://maps.googleapis.com/maps/api/js"></script>
-<script>
-function initialize() {
-  var mapProp = {
-    center:new google.maps.LatLng(51.508742,-0.120850),
-    zoom:5,
-    mapTypeId:google.maps.MapTypeId.ROADMAP
-  };
-  var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-}
-google.maps.event.addDomListener(window, 'load', initialize);
-</script>
+	<style>
+		#map{
+			border:1px solid;
+		}
+	</style>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCufeXeQ-TsgDuKviyAOcZaSf0HuKOYo90"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>assets/gmaps/gmaps.js"></script>
+
 </head>
 <body>
 	<div id="header">
@@ -28,31 +24,41 @@ google.maps.event.addDomListener(window, 'load', initialize);
 	</div>
 	<div id="contents">
 		<div class="section">
-			<h1>Contact</h1>
-			<p>
-				You can replace all this text with your own text. Want an easier solution for a Free Website? Head straight to Wix and immediately start customizing your website! Wix is an online website builder with a simple drag & drop interface, meaning you do the work online and instantly publish to the web. All Wix templates are fully customizable and free to use. Just pick one you like, click Edit, and enter the online editor.
-			</p>
-			<form action="index.html" method="post" class="message">
-				<input type="text" value="Name" onFocus="this.select();" onMouseOut="javascript:return false;"/>
-				<input type="text" value="Email" onFocus="this.select();" onMouseOut="javascript:return false;"/>
-				<input type="text" value="Subject" onFocus="this.select();" onMouseOut="javascript:return false;"/>
-				<textarea></textarea>
-				<input type="submit" value="Send"/>
-			</form>
+			<h1>Alamat</h1>
+			<table>
+				<div>
+				Jl. Kamarung KM. 1,5 No. 69 RT. 02/05 Ds. Nyalindung
+				</div>
+				<div>
+				Kelurahan Citeureup - Cimahi Utara 40512
+				</div>
+				<div>
+				Kota Cimahi
+				</div>
+				<div>
+				Telp./Fax. (022) 665 6088
+				</div>
+			</table>
+			
 		</div>
-		<div class="section contact">
-			<p>
-				For Inquiries Please Call: <span>877-433-8137</span>
-			</p>
-			<div id="googleMap" style="width:500px;height:380px;"></div>
+		<div class="section">
+			<div id="map" style="height:380px;"></div>
 		</div>
 	</div>
 	<div id="footer">
 		<?php
             echo($foot);
         ?>
-	</div>
-	<link rel="stylesheet" href="css/style.css" type="text/css">
+	</div>	
+<script>
+$(document).ready(function () {
+	new GMaps({
+	div: '#map',
+	lat: -12.043333,
+	lng: -77.028333
+	});
+})
 
+</script>
 </body>
 </html>

@@ -46,12 +46,12 @@ img {
 }
 /*------------------------------ HEADER ------------------------------*/
 #header {
-	background-color: #AFEEEE;
+	background-color: #eee;
 	border-bottom: 1px solid #e6e6e6;
 	padding: 10px 0;
-	position:fixed;
+	/*position:fixed;
 	margin:0px auto;
-	width:100%;
+	width:100%;*/
 }
 #header > div, #footer > div {
 	width: 920px;
@@ -293,11 +293,37 @@ p a {
 	border-bottom: 1px solid #d5d5d5;
 	padding: 24px 10px 0;
 }
-.posts li p {
+.beritaThumb {
 	font-size: 14px;
+	max-height: 200px;
+	overflow: hidden;
+}
+
+.beritaAksi {
+	font-size: 14px;
+	min-height: 50px;
+}
+
+.beritaAksi span {
+	padding: 10px;
+	padding-right: 0px;
+}
+
+.beritaAksi span {
+	float: right;
+}
+
+.beritaThumb div.image{
+	float:left;
+	padding-right:10px;
+	width: 200px;
+}
+
+.posts li div.beritaThumb p {
+	margin:0px
 }
 .posts li .title {
-	font-size: 16px;
+	font-size: 20px;
 	font-weight: normal;
 	margin: 0 0 12px;
 }
@@ -309,6 +335,14 @@ p a {
 .post {
 	width: 785px;
 	margin: 0 auto;
+	
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.post div.image{
+	float:left;
+	padding-right:10px;
+	width: 200px;
 }
 .post h1 {
 	padding-top: 12px;

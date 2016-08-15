@@ -67,12 +67,17 @@
 			<div class="second-tagline">
 				<h1>Berita Terkini</h1>
 				<ul class="posts">
-					<?php foreach ($beritaData as $key => $value) {?>
+				<?php foreach ($beritaData as $key => $value) {?>
 				<li>
 					<h4 class="title"><a href="<?php echo base_url();?>home/view_berita_home/<?php echo $value->id;?>"><?php echo ($value->judul);?></a></h4>
-					<p>
+					<div class="beritaThumb">
 						<?php echo ($value->isi);?>
-					</p>
+					</div>
+					<div class="beritaAksi">
+					<span>
+					<a href="<?php echo base_url();?>home/view_berita_home/<?php echo $value->id;?>" class="more">Read More</a></span>
+					<span>
+					</div>
 				</li>
 				<?php } ?>
 			</ul>
