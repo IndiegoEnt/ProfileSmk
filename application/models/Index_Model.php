@@ -9,7 +9,7 @@
 					return $query->result();
 		}
 		public function berita() {
-					$query = $this->db->query("select * from berita where active=1 order by tanggal_buat asc limit 2");
+					$query = $this->db->query("select * from berita where active=1 order by tanggal_buat desc limit 2");
 					return $query->result();
 		}
 	}
