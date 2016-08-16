@@ -30,7 +30,6 @@
           <div>
 			<a class="btn btn-primary" href="<?php echo base_url();?>/profile/view/<?php echo $value->id;?>">View</a> 
 			<a class="btn btn-warning" href="<?php echo base_url();?>/profile/edit/<?php echo $value->id;?>">Edit</a> 
-			<a class="btn btn-danger" href="<?php echo base_url();?>/profile/delete/<?php echo $value->id;?>"  onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
 		</td>
       </tr>
     <?php }?>
