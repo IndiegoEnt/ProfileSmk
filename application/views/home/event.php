@@ -18,7 +18,7 @@
 	
 	<div id="contents">
 		<div class="main">
-			<h1>Berita</h1>
+			<h1>Event</h1>
 			<ul class="news">
 				<?php foreach ($tableData as $key => $value) {?>
 				<li>

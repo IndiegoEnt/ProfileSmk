@@ -72,7 +72,7 @@ class Home extends CI_Controller {
             'header' =>  $this->load->view('home/layout/header' , false, true) ,
             'nav' =>  $this->load->view('home/layout/nav' , false, true) ,
             'foot' =>  $this->load->view('home/layout/foot' , false, true) ,
-            'galeriModel' => $this->Event_Model->list_event()
+            'tableData' => $this->Event_Model->list_event()
         );
         $this->load->view('home/event' , $template);
     }
