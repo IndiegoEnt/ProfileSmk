@@ -80,7 +80,8 @@
 		}
 
 		public function  get($id) {
-			$query = $this->db->get_where("profile" , array('id' => $id));
+			$this->db->join('jurusan', 'jurusan.id = profile.jurusan_id','left');
+			$query = $this->db->get_where("profile" , array('profile.id' => $id));
 			return $query->row();
 		}
 		

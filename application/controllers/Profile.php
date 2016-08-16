@@ -66,6 +66,22 @@ class Profile extends CI_Controller {
 
         redirect('Profile');
     }
+	public function view($id) {
+        $this->load->model('profile_model');
+        $this->load->model('jurusan_model');
+        $this->load->model('Kategori_Model');
+
+        $data = array(
+            'profileModel' => $this->profile_model->get($id),
+            'title' => 'Profile View',
+            'jurusans' => $this->jurusan_model->list_jurusan(),
+        );
+
+        $this->template->content->view('home/layout/profile/view_profile', $data);
+        
+        // Publish the template
+        $this->template->publish();
+    }
 	public function check_profile($jurusan_id) {
         $data = array(
             'status' => $this->profile_model->check_profile($jurusan_id)
