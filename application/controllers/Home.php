@@ -44,10 +44,13 @@ class Home extends CI_Controller {
             'header' =>  $this->load->view('home/layout/header' , false, true) ,
             'nav' =>  $this->load->view('home/layout/nav' , false, true) ,
             'foot' =>  $this->load->view('home/layout/foot' , false, true) ,
-            'beritaModel' => $this->Berita_Model->get($id), 
             'title' => 'Edit User',
             'jurusans' => $this->jurusan_model->list_jurusan(),
-            'kategoris' => $this->Kategori_Model->list_jurusan_by_berita_id($id)
+            'kategoris' => $this->Kategori_Model->list_jurusan_by_berita_id($id),
+            'template' => $this->template->content->view('home/layout/berita/view_berita', array(
+                    'backUrl' => base_url()."home/berita",
+                    'beritaModel' => $this->Berita_Model->get($id)
+            ) , true)
         );
 
         $this->load->view('home/view_berita_home', $template);
@@ -59,7 +62,7 @@ class Home extends CI_Controller {
             'header' =>  $this->load->view('home/layout/header' , false, true) ,
             'nav' =>  $this->load->view('home/layout/nav' , false, true) ,
             'foot' =>  $this->load->view('home/layout/foot' , false, true) ,
-            'galeriModel' => $this->Galeri_Model->list_galeri_home()
+            'galeriModel' => $this->Galeri_Model->list_galeri_home(),
         );
         $this->load->view('home/galery' , $template);
     }

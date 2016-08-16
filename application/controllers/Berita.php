@@ -81,7 +81,8 @@ class Berita extends CI_Controller {
             'beritaModel' => $this->Berita_Model->get($id),
             'title' => 'Edit User',
             'jurusans' => $this->jurusan_model->list_jurusan(),
-            'kategoris' => $this->Kategori_Model->list_jurusan_by_berita_id($id)
+            'kategoris' => $this->Kategori_Model->list_jurusan_by_berita_id($id),
+            'backUrl' => base_url()."berita/"
         );
 
         $this->template->content->view('home/layout/berita/view_berita', $data);
