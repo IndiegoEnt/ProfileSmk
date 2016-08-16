@@ -17,6 +17,9 @@
 					<a href="<?php echo base_url()?>home/galery">Galery</a>
 				</li>
 				<li>
+					<a href="<?php echo base_url()?>home/event">Event</a>
+				</li>
+				<li>
 					<a href="<?php echo base_url()?>home/sarana">Sarana</a>
 				</li>
 				<li>

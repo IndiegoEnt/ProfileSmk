@@ -15,7 +15,7 @@
         <th>Isi</th>
         <th>Created</th>    
         <th>Updated</th>
-        <th width="150px">Aksi</th>
+        <th width="200px">Aksi</th>
       </tr>
     </thead>
     <tbody>
@@ -27,7 +27,11 @@
         <td><?php echo ($value->tanggal_buat);?></td>
         <td><?php echo ($value->tanggal_edit); ?> , <?php echo ($value->username);?></td>
         <td>
-          <div><a class="btn btn-warning">Edit</a> <a class="btn btn-danger" href="<?php echo base_url();?>/profile/delete/<?php echo $value->id;?>">Delete</a></td>
+          <div>
+			<a class="btn btn-primary" href="<?php echo base_url();?>/profile/view/<?php echo $value->id;?>">View</a> 
+			<a class="btn btn-warning" href="<?php echo base_url();?>/profile/edit/<?php echo $value->id;?>">Edit</a> 
+			<a class="btn btn-danger" href="<?php echo base_url();?>/profile/delete/<?php echo $value->id;?>"  onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+		</td>
       </tr>
     <?php }?>
     </tbody>
