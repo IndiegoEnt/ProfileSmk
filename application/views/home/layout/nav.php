@@ -11,6 +11,9 @@
 					<a href="<?php echo base_url()?>home/jurusan">Kompetensi Keahlian</a>
 				</li>
 				<li>
+					<a href="<?php echo base_url()?>home/ekskul">Ekskul</a>
+				</li>
+				<li>
 					<a href="<?php echo base_url()?>home/berita">Berita</a>
 				</li>
 				<li>

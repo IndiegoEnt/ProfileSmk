@@ -26,6 +26,16 @@ class Home extends CI_Controller {
         );
         $this->load->view('home/jurusan' , $template);
     }
+    public function ekskul() {
+        $this->load->model('Ekskul_Model');
+        $template = array(
+            'header' =>  $this->load->view('home/layout/header' , false, true) ,
+            'nav' =>  $this->load->view('home/layout/nav' , false, true) ,
+            'foot' =>  $this->load->view('home/layout/foot' , false, true) ,
+            'tableData' => $this->Ekskul_Model->list_ekskul() 
+        );
+        $this->load->view('home/ekskul' , $template);
+    }
     public function berita() {
         $this->load->model('Berita_Model');
         $template = array(
