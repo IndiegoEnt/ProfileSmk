@@ -23,7 +23,7 @@
 				<?php foreach ($tableData as $key => $value) {?>
 				<li>
 					
-					<h2><?php echo ($value->nama); ?></h2>
+					<h1><?php echo ($value->nama); ?></h1>
 					
 					<div class='beritaThumb'>
 						<h3><?php echo ($value->nama_jurusan); ?></h3>
