@@ -5,6 +5,13 @@
 			$query = $this->db->get_where('users', $data);
 			return $query;
 		}
+		public function list_ekskul_home() {
+			$data = array('ekskul');
+			$this->db->select('ekskul.* , jurusan.nama as nama');
+			$this->db->join('jurusan', 'jurusan.id = ekskul.jurusan_id', 'left');
+			$query = $this->db->get_where("ekskul" , $data);
+			return $query->result();
+		}
 
 		public function list_ekskul() {
 			$data = array('id');

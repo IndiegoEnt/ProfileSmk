@@ -32,7 +32,7 @@ class Home extends CI_Controller {
             'header' =>  $this->load->view('home/layout/header' , false, true) ,
             'nav' =>  $this->load->view('home/layout/nav' , false, true) ,
             'foot' =>  $this->load->view('home/layout/foot' , false, true) ,
-            'tableData' => $this->Ekskul_Model->list_ekskul() 
+            'tableData' => $this->Ekskul_Model->list_ekskul_home() 
         );
         $this->load->view('home/ekskul' , $template);
     }
