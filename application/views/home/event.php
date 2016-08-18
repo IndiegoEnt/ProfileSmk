@@ -28,13 +28,13 @@
 							<?php echo ($value->tanggal_buat); ?>
 						</p>
 					</div>
-					<h2><?php echo ($value->judul); ?> <span><?php echo ($value->username); ?></span></h2>
+					<h2><?php echo ($value->nama); ?></h2>
 					
 					<div class='beritaThumb'>
 					<div class="image">
 						<img src="<?php echo base_url();?>upload/<?php echo $value->image?>" width="200px">
 					</div>
-					<?php echo ($value->isi); ?>
+					<?php echo ($value->keterangan); ?>
 					</div>
 					<div class="beritaAksi">
 					<span>

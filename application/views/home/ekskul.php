@@ -23,10 +23,10 @@
 				<?php foreach ($tableData as $key => $value) {?>
 				<li>
 					
-					<h2><?php echo ($value->ekskul_type); ?> <span><?php echo ($value->nama); ?></span> </h2>
+					<h2><?php echo ($value->nama); ?></h2>
 					
 					<div class='beritaThumb'>
-						<h3><?php echo ($value->nama); ?> </h3>
+						<h3><?php echo ($value->nama_jurusan); ?></h3>
 					<?php echo ($value->keterangan); ?>
 					</div>
 					<div class="beritaAksi">

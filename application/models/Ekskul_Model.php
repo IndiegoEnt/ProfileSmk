@@ -7,7 +7,7 @@
 		}
 		public function list_ekskul_home() {
 			$data = array('ekskul');
-			$this->db->select('ekskul.* , jurusan.nama as nama');
+			$this->db->select('ekskul.* , jurusan.nama as nama_jurusan');
 			$this->db->join('jurusan', 'jurusan.id = ekskul.jurusan_id', 'left');
 			$query = $this->db->get_where("ekskul" , $data);
 			return $query->result();
