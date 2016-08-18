@@ -91,6 +91,7 @@
             <li><a href="<?php echo base_url(); ?>Event">Event</a></li>
             <li><a href="<?php echo base_url(); ?>jurusan">Jurusan</a></li>
             <li><a href="<?php echo base_url(); ?>galeri">Galeri</a></li>
+            <li><a href="<?php echo base_url(); ?>agenda">Agenda</a></li>
            
           </ul>
         </div>

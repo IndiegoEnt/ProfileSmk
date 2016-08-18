@@ -5,7 +5,10 @@
   </div>
   <div class="form-group">
     <label for="kategori_keterangan">Keterangan Kategori</label>
-    <textarea class="form-control" id="kategori_keterangan" placeholder="Keterangan Kategori" name="keterangan" style="height:200px;"></textarea>
+    <textarea class="form-control" id="keterangan" placeholder="Keterangan Kategori" name="keterangan" style="height:200px;"></textarea>
   </div>
   <button type="submit" class="btn btn-default" id="button-submit">Submit</button>
 </form>
+<script>
+    CKEDITOR.replace( 'keterangan' );
+</script>
