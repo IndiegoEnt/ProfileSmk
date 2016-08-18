@@ -83,10 +83,11 @@ class Event extends CI_Controller {
             'eventModel' => $this->Event_Model->get($id),
             'title' => 'Edit User',
             'jurusans' => $this->jurusan_model->list_jurusan(),
-            'event_galery' =>$this->Event_Model->getGaleryFromEvent($id)
+            'event_galery' =>$this->Event_Model->getGaleryFromEvent($id),
+            'backUrl' => base_url()."event/"
         );
 
-        $this->template->content->view('home/layout/berita/view_berita', $data);
+        $this->template->content->view('home/layout/event/view_event', $data);
         
         // Publish the template
         $this->template->publish();
