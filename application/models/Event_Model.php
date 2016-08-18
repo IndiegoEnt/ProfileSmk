@@ -1,6 +1,14 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 	class Event_Model extends CI_Model {
+		public function list_event_home() {
+			$data = array('event.active' => '1' );
+			$this->db->select('event.* , users.username as username , jurusan.nama as nama_jurusan');
+			$this->db->join('users', 'users.id = event.user_id', 'left');
+			$this->db->join('jurusan', 'jurusan.id = event.jurusan_id', 'left');
+			$query = $this->db->get_where("event" , $data);
+			return $query->result();
+		}
 
 		public function list_event() {
 			$data = array('event.active' => '1');
@@ -82,7 +90,7 @@
 
 		public function  get($id) {
 
-			$this->db->select('event.* , jurusan.nama as nama_jurusan');
+			$this->db->select('event.* , jurusan.nama as nama_jurusan, users.nama as nama_user');
 			$this->db->join('jurusan', 'jurusan.id = event.jurusan_id', 'left');
 			$this->db->join('users', 'users.id = event.user_id', 'left');
 			$query = $this->db->get_where("event" , array('event.id' => $id));

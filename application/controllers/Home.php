@@ -66,6 +66,22 @@ class Home extends CI_Controller {
         $this->load->view('home/view_berita_home', $template);
        
     }
+    public function view_event_home($id) {
+        $this->load->model('Event_Model');
+        $template = array(
+            'header' =>  $this->load->view('home/layout/header' , false, true) ,
+            'nav' =>  $this->load->view('home/layout/nav' , false, true) ,
+            'foot' =>  $this->load->view('home/layout/foot' , false, true) ,
+            'title' => 'Event',
+            'template' => $this->template->content->view('home/layout/event/view_event', array(
+                    'backUrl' => base_url()."home/event",
+                    'eventModel' => $this->Event_Model->get($id)
+            ) , true)
+        );
+
+        $this->load->view('home/view_event_home', $template);
+       
+    }
     public function galery() {
         $this->load->model('Galeri_Model');
         $template = array(
