@@ -84,7 +84,9 @@ class Event extends CI_Controller {
             'title' => 'Edit User',
             'jurusans' => $this->jurusan_model->list_jurusan(),
             'event_galery' =>$this->Event_Model->getGaleryFromEvent($id),
-            'backUrl' => base_url()."event/"
+            'eventGaleryModel' => $this->Event_Model->getGaleryFromEvent($id),
+            'backUrl' => base_url()."event/",
+            'adminView' => true
         );
 
         $this->template->content->view('home/layout/event/view_event', $data);

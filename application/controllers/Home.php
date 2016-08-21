@@ -75,7 +75,8 @@ class Home extends CI_Controller {
             'title' => 'Event',
             'template' => $this->template->content->view('home/layout/event/view_event', array(
                     'backUrl' => base_url()."home/event",
-                    'eventModel' => $this->Event_Model->get($id)
+                    'eventModel' => $this->Event_Model->get($id),
+                    'eventGaleryModel' => $this->Event_Model->getGaleryFromEvent($id)
             ) , true)
         );
 
