@@ -4,28 +4,28 @@
 				<img src="<?php echo base_url() ?>assets/zerotype/images/logo.png" width="100px">
 			</div>
 			<ul id="navigation">
-				<li class="active">
-					<a href="<?php echo base_url()?>">Home</a>
+				<li id="home">
+					<a href="<?php echo base_url()?>" >Home</a>
 				</li>
-				<li>
+				<li id="jurusan">
 					<a href="<?php echo base_url()?>home/jurusan">Kompetensi Keahlian</a>
 				</li>
-				<li>
+				<li id="ekskul">
 					<a href="<?php echo base_url()?>home/ekskul">Ekskul</a>
 				</li>
-				<li>
+				<li id="berita">
 					<a href="<?php echo base_url()?>home/berita">Berita</a>
 				</li>
-				<li>
+				<li id="galery">
 					<a href="<?php echo base_url()?>home/galery">Galery</a>
 				</li>
-				<li>
+				<li id="event">
 					<a href="<?php echo base_url()?>home/event">Event</a>
 				</li>
-				<li>
+				<li id="sarana">
 					<a href="<?php echo base_url()?>home/sarana">Sarana</a>
 				</li>
-				<li>
+				<li id="kontak">
 					<a href="<?php echo base_url()?>home/kontak">Kontak</a>
 				</li>
 				

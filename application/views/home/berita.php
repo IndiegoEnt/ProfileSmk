@@ -24,8 +24,10 @@
 				<li>
 					<div class="date">
 						<p>
-							<span></span>
-							<?php echo ($value->tanggal_buat); ?>
+							<span>
+							<?php echo date( 'Y' , strtotime($value->tanggal_buat)  ); ?>
+							</span>
+							<?php echo date( 'm-d' , strtotime($value->tanggal_buat)  ); ?>
 						</p>
 					</div>
 					<h2><?php echo ($value->judul); ?> <span><?php echo ($value->username); ?></span></h2>
