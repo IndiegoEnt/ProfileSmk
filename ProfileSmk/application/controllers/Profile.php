@@ -39,7 +39,7 @@ class Profile extends CI_Controller {
     }
 	
 	public function create_save() {
-        $this->profile_model->save($this->input->post());
+        $this->profile_model->save($this->input->post(),$this);
         redirect('Profile');
     }
 	public function edit($id) {
@@ -49,7 +49,7 @@ class Profile extends CI_Controller {
 
         $data = array(
             'profileModel' => $this->profile_model->get($id),
-            'title' => 'Edit User',
+            'title' => 'Edit Profile',
             'jurusans' => $this->jurusan_model->list_jurusan(),
             'role' => $this->session->userdata('role') 
         );

@@ -1,6 +1,6 @@
-<form action="<?php echo base_url();?>/profile/create_save" method="post">
+<form action="<?php echo base_url();?>/profile/create_save" method="post"  enctype="multipart/form-data">
   <div class="form-group">
-    <label for="profile_type">Profile_Type</label>
+    <label for="profile_type">Profile Type</label>
     <select class="form-control" id="profile_type" name="profile_type" required>
         <option value="" >Pilih Jenis Profile</option>
         <option value="PROFILE_SEKOLAH" >Sekolah</option>
@@ -18,7 +18,10 @@
         <?php } ?>
     </select>
   </div>
-  
+  <div class="form-group" style="max-width: 300px;">
+    <label class="control-label">Logo</label>
+    <input id="input-1" type="file" class="file" name="logo">
+  </div>
   <div class="form-group">
     <label for="isi">Content</label>
     <textarea class="form-control" id="isi" placeholder="Masukkan Profile..." name="isi" style="height:200px;" required></textarea>

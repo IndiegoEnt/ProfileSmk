@@ -27,7 +27,8 @@
 			);
 		}
 
-		public function save($params) {
+		public function save($params, $ci) {
+			$currentDate = date('YmdHis');
 			$params['active'] = 1;
 			$params['profile_type'] = $params['profile_type'];
 			$params['jurusan_id'] = $params['jurusan_id'];
@@ -35,7 +36,11 @@
 			$params['tanggal_buat'] = date('YmdHis');
 			$params['tanggal_edit'] = date('YmdHis');
 			$params['user_id'] = 1;
-
+			$params['logo'] =  $this->uploadFile($ci , md5("THUMB_" . $currentDate ));
+			if(!$params['logo']){
+				$params['logo'] = 'noimage.png';
+			}
+			
 			$this->db->insert('profile', $params);
 			return $params;
 		}
@@ -57,12 +62,16 @@
 				$data['berita_type'] = 'PROFILE_JURUSAN';
 				$data['jurusan_id'] = $this->session->userdata('jurusan_id');
 			}
+			$data['logo'] =  $this->uploadFile($ci , md5("THUMB_" . $currentDate ));
+			if(!$data['logo']){
+				unset($data['logo']);
+			}
 			$data['user_id'] = $this->session->userdata('id');
 			
-			//$data['image'] =  $this->uploadFile($ci , md5("THUMB_" . $currentDate ));
-			//if(!$data['image']){
-			//	unset($data['image']);
-			//}
+			$data['logo'] =  $this->uploadFile($ci , md5("THUMB_" . $currentDate ));
+			if(!$data['logo']){
+				unset($data['logo']);
+			}
 
 			//$this->kategori_berita_model->save_batch($params['kategoris'] , $params['id']);
 
@@ -92,6 +101,22 @@
 		public function  check_profile_type($profile_type) {
 			$query = $this->db->get_where("profile" , array('profile_type' => $profile_type));
 			return $query->row() ? '1' : '0';
+		}
+		public function uploadFile($ci , $currentDate){
+			$config['file_name'] = $currentDate;
+			$config['upload_path']   = './upload/'; 
+			$config['allowed_types'] = 'gif|jpg|png';
+			
+			$ci->load->library('upload', $config);
+			if (!$ci->upload->do_upload('logo')) {
+				var_dump($ci->upload->display_errors());
+				echo("Upload gagal!");
+				exit();
+			} else { 
+				$data = array('upload_data' => $ci->upload->data()); 
+				return $data['upload_data']['file_name'];
+			}
+			return null; 
 		}
 
 	}
