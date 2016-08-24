@@ -7,10 +7,10 @@
         <option value="PROFILE_JURUSAN" >Jurusan</option>
     </select>
   </div>
-  
-  <div class="form-group" id="jurusanContainer" required>
+
+  <div class="form-group" id="jurusanContainer">
     <label for="jurusan">Jurusan</label> 
-    <select class="form-control" id="jurusan" name="jurusan_id">
+    <select class="form-control" id="jurusan12" name="jurusan_id">
         <option value="" >Pilih Jurusan</option>
         
         <?php foreach($jurusans as $key => $val) { ?>
@@ -31,6 +31,7 @@
 </form>
 
 <script>
+$(document).ready(function (){
 	$("form").validate();
     $('#profile_type').change(function() {
         if($(this).val() != 'PROFILE_JURUSAN'){
@@ -40,13 +41,27 @@
             $('#jurusanContainer').show();
             $('#jurusan').prop('required' , true)
         }
+        if($('#profile_type').val()){
+          $.ajax({
+            url:'<?php echo base_url();?>/profile/check_profile_type/'+ $('#profile_type').val(),
+            success : function(data){ console.log(data);
+              if(JSON.parse(data).status == 1 ){
+                $('#profile-duplicate-error').show();
+                $('#button-submit').prop('disabled', true);
+              }else{
+                $('#profile-duplicate-error').hide();
+                $('#button-submit').prop('disabled', false);
+              }
+            }
+          })
+        }
     })
-    $('#profile_type').change();
 	
-    $("form").validate();
-    $('#jurusan').change(function(){
+    $('#profile_type').change();
+    
+     $('#jurusan12').change(function(){
       $.ajax({
-        url:'<?php echo base_url();?>/profile/check_profile/'+ $('#jurusan').val(),
+        url:'<?php echo base_url();?>/profile/check_profile/'+ $('#jurusan12').val(),
         success : function(data){ console.log(data);
           if(JSON.parse(data).status == 1 ){
             $('#profile-duplicate-error').show();
@@ -57,28 +72,14 @@
           }
         }
       })
-    });
-	$('#profile_type').change(function(){
-      $.ajax({
-        url:'<?php echo base_url();?>/profile/check_profile_type/'+ $('#profile_type').val(),
-        success : function(data){ console.log(data);
-          if(JSON.parse(data).status == 1 ){
-            $('#profile-duplicate-error').show();
-            $('#button-submit').prop('disabled', true);
-          }else{
-            $('#profile-duplicate-error').hide();
-            $('#button-submit').prop('disabled', false);
-          }
-        }
-      })
-    });
+     });
     CKEDITOR.replace( 'isi' );
     $("#input-1").fileinput({
         browseClass: "btn btn-primary btn-block",
         showCaption: false,
         showRemove: false,
         showUpload: false
-    });
+    });})
 
     
 </script>

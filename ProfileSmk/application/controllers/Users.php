@@ -29,12 +29,12 @@ class Users extends CI_Controller {
 
     public function create() {
         $this->load->model('user');
-        $this->load->model('jurusan_model');
+        $this->load->model('Jurusan_Model');
         
         $data = array(
             'title' => 'Create User',
             'userModel' => $this->user->create_model(),
-            'jurusans' => $this->jurusan_model->list_jurusan()
+            'jurusans' => $this->Jurusan_Model->list_jurusan()
         );
 
         
@@ -65,12 +65,12 @@ class Users extends CI_Controller {
 
     public function edit($id) {
         $this->load->model('user');
-        $this->load->model('jurusan_model');
+        $this->load->model('Jurusan_Model');
 
         $data = array(
             'userModel' => $this->user->get($id),
             'title' => 'Edit User',
-            'jurusans' => $this->jurusan_model->list_jurusan()
+            'jurusans' => $this->Jurusan_Model->list_jurusan()
         );
 
         $this->template->content->view('users/edit', $data);

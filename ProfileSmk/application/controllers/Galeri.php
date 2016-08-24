@@ -19,7 +19,7 @@ class Galeri extends CI_Controller {
             'tableData' => $this->Galeri_Model->list_galeri()
         );
         
-        $this->template->content->view('Galeri/index', $data);
+        $this->template->content->view('galeri/index', $data);
         
         // Publish the template
         $this->template->publish();

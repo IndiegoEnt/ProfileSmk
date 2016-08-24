@@ -55,17 +55,6 @@
 				'tanggal_edit' =>$params['tanggal_edit'],
 				'isi' => $params['isi'],
 			);
-			if($data['profile_type'] == 'PROFILE_SEKOLAH'){
-				$data['jurusan_id'] = null;
-			}
-			if($this->session->userdata('role') == "ROLE_KAJUR"){
-				$data['berita_type'] = 'PROFILE_JURUSAN';
-				$data['jurusan_id'] = $this->session->userdata('jurusan_id');
-			}
-			$data['logo'] =  $this->uploadFile($ci , md5("THUMB_" . $currentDate ));
-			if(!$data['logo']){
-				unset($data['logo']);
-			}
 			$data['user_id'] = $this->session->userdata('id');
 			
 			$data['logo'] =  $this->uploadFile($ci , md5("THUMB_" . $currentDate ));
@@ -73,7 +62,7 @@
 				unset($data['logo']);
 			}
 
-			//$this->kategori_berita_model->save_batch($params['kategoris'] , $params['id']);
+			//$this->Kategori_Berita_Model->save_batch($params['kategoris'] , $params['id']);
 
 			$this->db->where('id', $params['id']);
 			$this->db->update('profile', $data);
@@ -85,10 +74,11 @@
 			$this->db->set('tanggal_edit', date('YmdHis'),  FALSE);
 			$this->db->where('id', $id );
 			$this->db->update('profile');
-			return $params;
+			return $id;
 		}
 
 		public function  get($id) {
+			$this->db->select('profile.* , jurusan.nama as nama');
 			$this->db->join('jurusan', 'jurusan.id = profile.jurusan_id','left');
 			$query = $this->db->get_where("profile" , array('profile.id' => $id));
 			return $query->row();
@@ -109,9 +99,7 @@
 			
 			$ci->load->library('upload', $config);
 			if (!$ci->upload->do_upload('logo')) {
-				var_dump($ci->upload->display_errors());
-				echo("Upload gagal!");
-				exit();
+				
 			} else { 
 				$data = array('upload_data' => $ci->upload->data()); 
 				return $data['upload_data']['file_name'];

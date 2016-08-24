@@ -48,14 +48,14 @@ class Home extends CI_Controller {
     }
     public function view_berita_home($id) {
         $this->load->model('Berita_Model');
-        $this->load->model('jurusan_model');
+        $this->load->model('Jurusan_Model');
         $this->load->model('Kategori_Model');
         $template = array(
             'header' =>  $this->load->view('home/layout/header' , false, true) ,
             'nav' =>  $this->load->view('home/layout/nav' , false, true) ,
             'foot' =>  $this->load->view('home/layout/foot' , false, true) ,
             'title' => 'Edit User',
-            'jurusans' => $this->jurusan_model->list_jurusan(),
+            'jurusans' => $this->Jurusan_Model->list_jurusan(),
             'kategoris' => $this->Kategori_Model->list_jurusan_by_berita_id($id),
             'template' => $this->template->content->view('home/layout/berita/view_berita', array(
                     'backUrl' => base_url()."home/berita",

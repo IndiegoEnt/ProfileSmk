@@ -27,12 +27,12 @@ class Berita extends CI_Controller {
 
     public function create() {
         $this->load->model('Berita_Model');
-        $this->load->model('jurusan_model');
+        $this->load->model('Jurusan_Model');
         
         $data = array(
             'title' => 'Create User',
             'userModel' => $this->Berita_Model->create_model(),
-            'jurusans' => $this->jurusan_model->list_jurusan(),
+            'jurusans' => $this->Jurusan_Model->list_jurusan(),
             'role' => $this->session->userdata('role') 
         );
 
@@ -55,13 +55,13 @@ class Berita extends CI_Controller {
 
     public function edit($id) {
         $this->load->model('Berita_Model');
-        $this->load->model('jurusan_model');
+        $this->load->model('Jurusan_Model');
         $this->load->model('Kategori_Model');
 
         $data = array(
             'beritaModel' => $this->Berita_Model->get($id),
             'title' => 'Edit User',
-            'jurusans' => $this->jurusan_model->list_jurusan(),
+            'jurusans' => $this->Jurusan_Model->list_jurusan(),
             'kategoris' => $this->Kategori_Model->list_jurusan_by_berita_id($id),
             'role' => $this->session->userdata('role') 
         );
@@ -74,13 +74,13 @@ class Berita extends CI_Controller {
 
     public function view($id) {
         $this->load->model('Berita_Model');
-        $this->load->model('jurusan_model');
+        $this->load->model('Jurusan_Model');
         $this->load->model('Kategori_Model');
 
         $data = array(
             'beritaModel' => $this->Berita_Model->get($id),
             'title' => 'Edit User',
-            'jurusans' => $this->jurusan_model->list_jurusan(),
+            'jurusans' => $this->Jurusan_Model->list_jurusan(),
             'kategoris' => $this->Kategori_Model->list_jurusan_by_berita_id($id),
             'backUrl' => base_url()."berita/"
         );

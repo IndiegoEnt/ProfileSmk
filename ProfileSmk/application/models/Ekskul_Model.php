@@ -68,11 +68,11 @@
 		public function  delete($id) {
 			$this->db->where('id', $id );
 			$this->db->delete('ekskul');
-			return $params;
+			return $id;
 		}
 
 		public function  get($id) {
-			$query = $this->db->get_where("Ekskul" , array('id' => $id));
+			$query = $this->db->get_where("ekskul" , array('id' => $id));
 			return $query->row();
 		}
 	}

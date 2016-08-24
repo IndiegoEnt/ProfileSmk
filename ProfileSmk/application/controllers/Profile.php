@@ -25,12 +25,12 @@ class Profile extends CI_Controller {
     }
 	public function create() {
         $this->load->model('profile_model');
-        $this->load->model('jurusan_model');
+        $this->load->model('Jurusan_Model');
         
         $data = array(
             'title' => 'Create Profile',
             'userModel' => $this->profile_model->create_model(),
-            'jurusans' => $this->jurusan_model->list_jurusan()
+            'jurusans' => $this->Jurusan_Model->list_jurusan()
         );
 
         $this->template->content->view('profile/create', $data);    
@@ -44,13 +44,13 @@ class Profile extends CI_Controller {
     }
 	public function edit($id) {
         $this->load->model('profile_model');
-        $this->load->model('jurusan_model');
+        $this->load->model('Jurusan_Model');
         $this->load->model('Kategori_Model');
 
         $data = array(
             'profileModel' => $this->profile_model->get($id),
             'title' => 'Edit Profile',
-            'jurusans' => $this->jurusan_model->list_jurusan(),
+            'jurusans' => $this->Jurusan_Model->list_jurusan(),
             'role' => $this->session->userdata('role') 
         );
 
@@ -68,13 +68,13 @@ class Profile extends CI_Controller {
     }
 	public function view($id) {
         $this->load->model('profile_model');
-        $this->load->model('jurusan_model');
+        $this->load->model('Jurusan_Model');
         $this->load->model('Kategori_Model');
 
         $data = array(
             'profileModel' => $this->profile_model->get($id),
             'title' => 'Profile View',
-            'jurusans' => $this->jurusan_model->list_jurusan(),
+            'jurusans' => $this->Jurusan_Model->list_jurusan(),
         );
 
         $this->template->content->view('home/layout/profile/view_profile', $data);

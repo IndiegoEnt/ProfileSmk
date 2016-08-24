@@ -34,7 +34,7 @@
 		}
 
 		public function  save($params , $ci) {
-			$this->load->model('kategori_berita_model');
+			$this->load->model('Kategori_Berita_Model');
 			$currentDate = date('YmdHis');
 			$params['tanggal_buat'] = $currentDate;
 			$params['tanggal_edit'] = $currentDate;
@@ -55,13 +55,13 @@
 			unset($params['kategoris']);
 			
 			$this->db->insert('berita', $params);
-			$this->kategori_berita_model->save_batch($kategoris , $this->db->insert_id());
+			$this->Kategori_Berita_Model->save_batch($kategoris , $this->db->insert_id());
 			return $params;
 		}
 
 		public function  update($params , $ci) {
 
-			$this->load->model('kategori_berita_model');
+			$this->load->model('Kategori_Berita_Model');
 			
 			$currentDate = date('YmdHis');
 			$params['tanggal_edit'] = $currentDate;
@@ -88,7 +88,7 @@
 				unset($data['image']);
 			}
 
-			$this->kategori_berita_model->save_batch($params['kategoris'] , $params['id']);
+			$this->Kategori_Berita_Model->save_batch($params['kategoris'] , $params['id']);
 
 			$this->db->where('id', $params['id']);
 			$this->db->update('berita', $data);
@@ -100,7 +100,7 @@
 			$this->db->set('tanggal_edit', date('YmdHis'),  FALSE);
 			$this->db->where('id', $id );
 			$this->db->update('berita');
-			return $params;
+			return $id;
 		}
 
 		public function  get($id) {
