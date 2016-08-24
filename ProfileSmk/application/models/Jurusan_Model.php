@@ -3,7 +3,7 @@
 	class Jurusan_Model extends CI_Model {
 		public function isi_jurusan_home() {
 			$data = array('profile.active' => '1');
-			$this->db->select('jurusan.* , profile.isi as isi');
+			$this->db->select('jurusan.* , profile.isi as isi , profile.logo as image ');
 			$this->db->join('profile', 'profile.jurusan_id = jurusan.id', 'left');
 			$query = $this->db->get_where("jurusan" , $data);
 			return $query->result();

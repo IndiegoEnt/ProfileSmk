@@ -22,7 +22,7 @@
 			<div>
 				
 				<?php foreach ($tableData as $key => $value) {?>
-				<img src="<?php echo base_url() ?>ProfileSmk/assets/zerotype/images/logo.png" alt="Img" width="100px"><br>
+				<img src="<?php echo base_url() ?>upload/<?php echo $value->image ?>" alt="Img" width="150px" style=""><br>
 				<h2><?php echo ($value->nama); ?></h2><br>
 				
 					<?php echo ($value->isi); ?><br>
