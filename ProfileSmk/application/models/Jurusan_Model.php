@@ -12,6 +12,16 @@
 			$query = $this->db->query("select * from jurusan where active = '1'");
 			return $query->result();
 		}
+		public function detail_jurusan_home() {
+			$data = array('jurusan.active' => '1 ');
+			$this->db->select('jurusan.* , profile.isi as isi_profile , profile.logo as logo , ekskul.nama as nama_ekskul_jurusan , ekskul.keterangan as keterangan_ekskul_jurusan , berita.judul as judul , berita.isi as isi , berita.image as image');
+			$this->db->join('profile', 'profile.jurusan_id = jurusan.id', 'left');
+			$this->db->join('ekskul', 'ekskul.jurusan_id = jurusan.id', 'left');
+			$this->db->join('berita', 'berita.jurusan_id = jurusan.id', 'left');
+			$query = $this->db->get_where("jurusan" , $data);
+			
+			return $query->result();
+		}
 
 		public function create_jurusan() {
 			return array(
@@ -43,7 +53,12 @@
 		}
 
 		public function  get($id) {
-			$query = $this->db->get_where("jurusan" , array('id' => $id));
+			$data = array('jurusan.active' => '1');
+			$this->db->select('jurusan.* , profile.isi as isi_profile , profile.logo as logo , ekskul.nama as nama_ekskul_jurusan , ekskul.keterangan as keterangan_ekskul_jurusan , berita.judul as judul , berita.isi as isi , berita.image as image');
+			$this->db->join('profile', 'profile.jurusan_id = jurusan.id', 'left');
+			$this->db->join('ekskul', 'ekskul.jurusan_id = jurusan.id', 'left');
+			$this->db->join('berita', 'berita.jurusan_id = jurusan.id', 'left');
+			$query = $this->db->get_where("jurusan" , array('jurusan.id' => $id));
 			return $query->row();
 		}
 
