@@ -9,7 +9,12 @@
 <script type="text/javascript" src="<?php echo base_url() ?>ProfileSmk/assets/photoswipe/dist/photoswipe-ui-default.min.js"></script>
 <link rel="stylesheet" href="<?php echo base_url() ?>ProfileSmk/assets/photoswipe/dist/photoswipe.css"></link>
 <link rel="stylesheet" href="<?php echo base_url() ?>ProfileSmk/assets/photoswipe/dist/default-skin/default-skin.css"></link>
-
+<style>
+	figure{
+		    min-height: 150px;
+    		display: block;
+	}
+</style>
 </head>
 <body>
 	<div id="header">

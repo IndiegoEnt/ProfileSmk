@@ -29,12 +29,12 @@ class Ekskul extends CI_Controller {
 
     public function create() {
         $this->load->model('Ekskul_Model');
-        $this->load->model('jurusan_model');
+        $this->load->model('Jurusan_Model');
         
         $data = array(
             'title' => 'Create Ekskul',
             'ekskulModel' => $this->Ekskul_Model->create_model(),
-            'jurusans' => $this->jurusan_model->list_jurusan()
+            'jurusans' => $this->Jurusan_Model->list_jurusan()
         );
 
         
@@ -55,12 +55,12 @@ class Ekskul extends CI_Controller {
 
     public function edit($id) {
         $this->load->model('Ekskul_Model');
-        $this->load->model('jurusan_model');
+        $this->load->model('Jurusan_Model');
 
         $data = array(
             'ekskulModel' => $this->Ekskul_Model->get($id),
             'title' => 'Edit Ekskul',
-            'jurusans' => $this->jurusan_model->list_jurusan()
+            'jurusans' => $this->Jurusan_Model->list_jurusan()
         );
 
         $this->template->content->view('ekskul/edit', $data);

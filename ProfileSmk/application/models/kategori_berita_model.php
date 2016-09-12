@@ -1,6 +1,6 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-	class Kategori_Berita_model extends CI_Model {
+	class Kategori_Berita_Model extends CI_Model {
 
 		
 		public function list_kategori_berita() {

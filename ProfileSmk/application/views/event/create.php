@@ -9,7 +9,7 @@
   <div class="form-group">
     <label for="event_type">Jenis Event</label>
     <select class="form-control" id="event_type" name="event_type" required>
-        <option value="" >Pilih Jenis Berita</option>
+        <option value="" >Pilih Jenis Event</option>
         <option value="EVENT_SEKOLAH" >Sekolah</option>
         <option value="EVENT_JURUSAN" >Jurusan</option>
     </select>

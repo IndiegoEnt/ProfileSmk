@@ -32,7 +32,7 @@
 		public function  save($params , $ci) {
 			
 			$currentDate = date('YmdHis');
-			$this->load->model('kategori_berita_model');
+			$this->load->model('Kategori_Berita_Model');
 			$params['tanggal_buat'] = $currentDate;
 			$params['tanggal_edit'] = $currentDate;
 			$params['active'] = 1;
@@ -53,7 +53,7 @@
 
 		public function  update($params , $ci) {
 
-			$this->load->model('kategori_berita_model');
+			$this->load->model('Kategori_Berita_Model');
 			
 			$currentDate = date('YmdHis');
 			$params['tanggal_edit'] = $currentDate;
@@ -87,7 +87,7 @@
 			$this->db->set('tanggal_edit', date('YmdHis'),  FALSE);
 			$this->db->where('id', $id );
 			$this->db->update('event');
-			return $params;
+			return $id;
 		}
 
 		public function  get($id) {

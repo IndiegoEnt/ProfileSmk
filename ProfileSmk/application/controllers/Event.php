@@ -29,12 +29,12 @@ class Event extends CI_Controller {
 
         
         $this->load->model('Event_Model');
-        $this->load->model('jurusan_model');
+        $this->load->model('Jurusan_Model');
         
         $data = array(
             'title' => 'Create User',
             'userModel' => $this->Event_Model->create_model(),
-            'jurusans' => $this->jurusan_model->list_jurusan(),
+            'jurusans' => $this->Jurusan_Model->list_jurusan(),
             'role' => $this->session->userdata('role') 
         );
 
@@ -58,13 +58,13 @@ class Event extends CI_Controller {
 
     public function edit($id) {
         $this->load->model('Event_Model');
-        $this->load->model('jurusan_model');
+        $this->load->model('Jurusan_Model');
         $this->load->model('Kategori_Model');
 
         $data = array(
             'eventModel' => $this->Event_Model->get($id),
             'title' => 'Edit User',
-            'jurusans' => $this->jurusan_model->list_jurusan(),
+            'jurusans' => $this->Jurusan_Model->list_jurusan(),
             'event_galery' =>$this->Event_Model->getGaleryFromEvent($id),
             'role' => $this->session->userdata('role') 
         );
@@ -77,12 +77,12 @@ class Event extends CI_Controller {
 
     public function view($id) {
         $this->load->model('Event_Model');
-        $this->load->model('jurusan_model');
+        $this->load->model('Jurusan_Model');
 
         $data = array(
             'eventModel' => $this->Event_Model->get($id),
             'title' => 'Edit User',
-            'jurusans' => $this->jurusan_model->list_jurusan(),
+            'jurusans' => $this->Jurusan_Model->list_jurusan(),
             'event_galery' =>$this->Event_Model->getGaleryFromEvent($id),
             'eventGaleryModel' => $this->Event_Model->getGaleryFromEvent($id),
             'backUrl' => base_url()."event/",

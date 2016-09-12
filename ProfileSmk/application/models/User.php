@@ -61,7 +61,7 @@
 			$this->db->set('tanggal_edit', date('YmdHis'),  FALSE);
 			$this->db->where('id', $id );
 			$this->db->update('users');
-			return $params;
+			return $id;
 		}
 
 		public function  get($id) {

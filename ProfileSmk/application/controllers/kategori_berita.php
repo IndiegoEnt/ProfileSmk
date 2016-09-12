@@ -12,11 +12,11 @@ class Kategori_berita extends CI_Controller {
     }
     
     public function index() {
-        $this->load->model('kategori_berita_model');
+        $this->load->model('Kategori_Berita_Model');
         
         $data = array(
             'title' => 'Kategori Berita',
-            'tableData' => $this->kategori_berita_model->list_kategori_berita()
+            'tableData' => $this->Kategori_Berita_Model->list_kategori_berita()
         );
         $this->template->content->view('kategori_berita/index', $data);
         
@@ -24,11 +24,11 @@ class Kategori_berita extends CI_Controller {
         $this->template->publish();
     }
      public function create() {
-        $this->load->model('kategori_berita_model');
+        $this->load->model('Kategori_Berita_Model');
         
         $data = array(
             'title' => 'Create Kategori Berita',
-            'userModel' => $this->kategori_berita_model->create_model()
+            'userModel' => $this->Kategori_Berita_Model->create_model()
         );
 
         

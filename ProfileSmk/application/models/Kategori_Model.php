@@ -54,7 +54,7 @@
 		public function  delete($id) {
 			$this->db->where('id', $id );
 			$this->db->delete('kategori');
-			return $params;
+			return $id;
 		}
 
 		public function  check_kategori($id) {

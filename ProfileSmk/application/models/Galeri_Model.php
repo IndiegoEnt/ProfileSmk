@@ -95,7 +95,7 @@
 			$this->db->set('tanggal_edit', date('YmdHis'),  FALSE);
 			$this->db->where('id', $id );
 			$this->db->update('galeri');
-			return $params;
+			return $id;
 		}
 	}
 

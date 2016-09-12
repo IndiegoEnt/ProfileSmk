@@ -65,7 +65,7 @@
 			$this->db->set('active', '0', FALSE);
 			$this->db->where('id', $id );
 			$this->db->update('agenda');
-			return $params;
+			return $id;
 		}
 		
 	}
