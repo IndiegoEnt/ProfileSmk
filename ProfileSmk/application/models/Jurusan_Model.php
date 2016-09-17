@@ -53,13 +53,14 @@
 		}
 
 		public function  get($id) {
-			$data = array('jurusan.active' => '1');
-			$this->db->select('jurusan.* , profile.isi as isi_profile , profile.logo as logo , ekskul.nama as nama_ekskul_jurusan , ekskul.keterangan as keterangan_ekskul_jurusan , berita.judul as judul , berita.isi as isi , berita.image as image');
+			$this->load->model('Ekskul_Model');
+			$this->db->select('jurusan.* , profile.isi as isi_profile , profile.logo as logo ');
 			$this->db->join('profile', 'profile.jurusan_id = jurusan.id', 'left');
-			$this->db->join('ekskul', 'ekskul.jurusan_id = jurusan.id', 'left');
-			$this->db->join('berita', 'berita.jurusan_id = jurusan.id', 'left');
-			$query = $this->db->get_where("jurusan" , array('jurusan.id' => $id));
-			return $query->row();
+			$query = $this->db->get_where("jurusan" , array('jurusan.id' => $id , 'jurusan.active' => '1'));
+			$data =  $query->row();
+			$data->ekskul = $this->Ekskul_Model->list_ekskul_by_jurusan($data->id);
+			$data->berita = $this->Berita_Model->list_berita_by_jurusan($data->id);
+			return $data;
 		}
 
 		public function  delete($id) {

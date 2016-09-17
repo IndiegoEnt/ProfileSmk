@@ -23,6 +23,10 @@
 			$query = $this->db->get_where("berita" , $data);
 			return $query->result();
 		}
+		public function list_berita_by_jurusan ($jurusan_id) {
+			$query = $this->db->get_where("berita" , array('jurusan_id' =>  $jurusan_id , 'active' => '1'));
+			return $query->result();
+		}
 
 		public function  create_model() {
 			return array(

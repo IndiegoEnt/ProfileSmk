@@ -124,16 +124,24 @@ p a {
 	</div>
 	<div class="post">
 			<h3>Ekskul Jurusan : <?php echo($jurusanModel->nama); ?> </h3>
-			<?php echo($jurusanModel->nama_ekskul_jurusan); ?><br>
-			<?php echo($jurusanModel->keterangan_ekskul_jurusan); ?><br>
+			<?php foreach ($jurusanModel->ekskul as $key => $value) {
+				?>
+				<?php echo $value->nama;?>
+				<?php echo $value->keterangan;?>
+				<?php echo $value->keterangan;?>
+				<?php
+			}?>
 	</div>
 	<div class="post">
 			<h3>Berita Jurusan : <?php echo($jurusanModel->nama ); ?></h3>
-			
-			<div class="image">
-			<img src="<?php echo base_url() ?>upload/<?php echo $jurusanModel->image?>" alt="Img" width="200px">
-			</div>
-			<?php echo($jurusanModel->judul); ?><br>
-			<?php echo($jurusanModel->isi); ?><br><br>
+			<?php foreach ($jurusanModel->berita as $key => $value) {
+				?>
+				<div class="image">
+				<img src="<?php echo base_url() ?>upload/<?php echo $value->image?>" alt="Img" width="200px">
+				</div>
+				<?php echo $value->judul;?>
+				<?php echo $value->isi;?><br>
+				<?php
+			}?>
 	</div>
 <span><a href="<?php echo $backUrl ?>" class="more">Kembali ke jurusan</a></span>	   
