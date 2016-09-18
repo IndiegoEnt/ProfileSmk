@@ -16,6 +16,9 @@
 				<li id="berita">
 					<a href="<?php echo base_url()?>home/berita">Berita</a>
 				</li>
+				<li id="ppdb">
+					<a href="<?php echo base_url()?>home/ppdb">PPDB</a>
+				</li>
 				<li id="galery">
 					<a href="<?php echo base_url()?>home/galery">Galeri</a>
 				</li>

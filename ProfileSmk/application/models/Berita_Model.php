@@ -33,6 +33,18 @@
 			);
 		}
 
+		public function list_kategori_ppdb()
+		{
+			$data = array('berita.active' => '1' );
+			$this->db->select('berita.* , users.username as username');
+			$this->db->join('users', 'users.id = berita.user_id', 'left');
+			$this->db->order_by('tanggal_buat' , 'desc');
+			$this->db->where('berita_type', 'BERITA_PPDB');
+			$this->db->from('berita');
+			$query = $this->db->get();
+			return $query->result();
+		}
+
 		public function  save($params , $ci) {
 			$this->load->model('Kategori_Berita_Model');
 			$currentDate = date('YmdHis');
