@@ -28,6 +28,10 @@
 			);
 		}
 
+		public function list_ekskul_by_jurusan ($jurusan_id) {
+			$query = $this->db->get_where("ekskul" , array('jurusan_id' =>  $jurusan_id));
+			return $query->result();
+		}
 		public function save($params) {
 			//print_r($file);
 			//die("here");
