@@ -6,6 +6,8 @@
 			$this->db->select('berita.* , users.username as username');
 			$this->db->join('users', 'users.id = berita.user_id', 'left');
 			$this->db->order_by('tanggal_buat' , 'desc');
+			$array = array('berita_type !=' => 'BERITA_PPDB');
+			$this->db->where($array);
 			$query = $this->db->get_where("berita" , $data);
 			
 			return $query->result();
