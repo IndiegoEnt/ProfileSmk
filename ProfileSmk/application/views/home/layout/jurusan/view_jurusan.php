@@ -139,8 +139,9 @@ p a {
 				<img src="<?php echo base_url() ?>upload/<?php echo $value->image?>" alt="Img" width="200px">
 				</div>
 				<?php echo $value->judul;?>
-				<?php echo $value->isi;?><br>
+				<?php echo $value->isi;?><br><br>
 				<?php
 			}?>
+			<span><a href="<?php echo $backUrl ?>" class="more">Kembali ke jurusan</a></span>
 	</div>
-<span><a href="<?php echo $backUrl ?>" class="more">Kembali ke jurusan</a></span>	   
+	   

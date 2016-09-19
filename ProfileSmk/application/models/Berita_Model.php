@@ -3,7 +3,7 @@
 	class Berita_Model extends CI_Model {
 		public function list_berita_home() {
 			$data = array('berita.active' => '1' );
-			$this->db->select('berita.* , users.username as username');
+			$this->db->select('berita.* , users.username as username ,');
 			$this->db->join('users', 'users.id = berita.user_id', 'left');
 			$this->db->order_by('tanggal_buat' , 'desc');
 			$array = array('berita_type !=' => 'BERITA_PPDB');

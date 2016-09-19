@@ -54,6 +54,7 @@
 
 		public function  get($id) {
 			$this->load->model('Ekskul_Model');
+			$this->load->model('Berita_Model');
 			$this->db->select('jurusan.* , profile.isi as isi_profile , profile.logo as logo ');
 			$this->db->join('profile', 'profile.jurusan_id = jurusan.id', 'left');
 			$query = $this->db->get_where("jurusan" , array('jurusan.id' => $id , 'jurusan.active' => '1'));

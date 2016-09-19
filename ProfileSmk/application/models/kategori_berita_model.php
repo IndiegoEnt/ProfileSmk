@@ -8,6 +8,7 @@
 			$query = $this->db->get_where("kategori_berita" , $data);
 			return $query->result();
 		}
+		
 
 		public function  create_model() {
 			return array(

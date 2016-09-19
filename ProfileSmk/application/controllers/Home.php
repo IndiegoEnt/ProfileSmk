@@ -93,6 +93,8 @@ class Home extends CI_Controller {
 
     public function berita() {
         $this->load->model('Berita_Model');
+        $this->load->model('Kategori_Model');
+        $this->load->model('kategori_berita_Model');
         $template = array(
             'header' =>  $this->load->view('home/layout/header' , false, true) ,
             'nav' =>  $this->load->view('home/layout/nav' , false, true) ,
