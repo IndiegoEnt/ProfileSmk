@@ -128,7 +128,6 @@ p a {
 				?>
 				<?php echo $value->nama;?>
 				<?php echo $value->keterangan;?>
-				<?php echo $value->keterangan;?>
 				<?php
 			}?>
 	</div>

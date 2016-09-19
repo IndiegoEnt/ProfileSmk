@@ -23,7 +23,7 @@
 				
 				<?php foreach ($tableData as $key => $value) {?>
 				<img src="<?php echo base_url() ?>upload/<?php echo $value->image ?>" alt="Img" width="150px" style=""><br>
-				<h2><a href="<?php echo base_url();?>home/view_jurusan_home/<?php echo $value->id;?>" style="text-decoration:none" ><?php echo ($value->nama); ?></a></h2><br>
+				<h2><a href="<?php echo base_url();?>home/view_jurusan_home/<?php echo $value->id;?>" style="text-decoration:none;color: inherit;" ><?php echo ($value->nama); ?></a></h2><br>
 				
 					<?php echo ($value->isi); ?><br>
 					<?php } ?>
