@@ -13,7 +13,6 @@
   <div class="form-group" id="jurusanContainer">
     <label for="jurusan_id">Jurusan </label>
     <select class="form-control" id="jurusan" name="jurusan_id" >
-        <option value="" >Pilih Jurusan</option>
         <?php foreach($jurusans as $key => $val) { ?>
           <option value="<?php echo $val->id; ?>" ><?php echo $val->nama; ?></option>
         <?php } ?>

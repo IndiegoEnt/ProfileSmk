@@ -41,6 +41,7 @@ p {
 	font-size: 16px;
 	line-height: 24px;
 	margin: 0 0 30px;
+	
 }
 p a {
 	color: #585858;
@@ -114,6 +115,9 @@ p a {
 	background-color: #f99600;
 	color: #000;
 }
+.break {
+    word-break: break-all;
+}
 </style>
 	<div class="post">
 			<h1><?php echo($jurusanModel->nama); ?> </h1>
@@ -132,16 +136,31 @@ p a {
 			}?>
 	</div>
 	<div class="post">
-			<h3>Berita Jurusan : <?php echo($jurusanModel->nama ); ?></h3>
+		<h3>Berita Jurusan : <?php echo($jurusanModel->nama ); ?></h3>
+		<table>
+			
 			<?php foreach ($jurusanModel->berita as $key => $value) {
 				?>
-				<div class="image">
-				<img src="<?php echo base_url() ?>upload/<?php echo $value->image?>" alt="Img" width="200px">
-				</div>
-				<?php echo $value->judul;?>
-				<?php echo $value->isi;?><br><br>
-				<?php
+			<tr>
+				<td rowspan="2">
+					<div class="image">
+					<img src="<?php echo base_url() ?>upload/<?php echo $value->image?>" alt="Img" width="200px">
+					</div>
+				</td>
+				<td><?php echo $value->judul;?></td>
+			</tr>
+			<tr>
+				
+				<td class="break"><?php echo $value->isi;?></td>
+				<?php	
 			}?>
-			<span><a href="<?php echo $backUrl ?>" class="more">Kembali ke jurusan</a></span>
+				<td>
+					<span><a href="<?php echo $backUrl ?>" class="more">Kembali ke jurusan</a></span>
+				</td>
+			</tr>	
+				
+			
+				
+		</table>	
 	</div>
 	   
