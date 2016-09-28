@@ -53,7 +53,20 @@ class Event extends CI_Controller {
 
         $this->Event_Model->save($this->input->post() , $this);
 
+        // $this->save_to_galery($this->input->post() , $this);
+
+        $this->load->model('Galeri_Model');
+        //echo $this->input->post('tampilkan');
+        $this->Galeri_Model->save_from_event($this->input->post() , $this);
+
         redirect('Event');
+    }
+
+    public function save_to_galery($post, $post2)
+    {
+        $this->load->model('Galeri_Model');
+        //echo $this->input->post('tampilkan');
+        $this->Galeri_Model->save($post , $post2);
     }
 
     public function edit($id) {
