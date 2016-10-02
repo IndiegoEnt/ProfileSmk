@@ -1,6 +1,6 @@
 
-		<div>
-			<div class="logo">
+		<div style="text-align:center">
+			<div class="logo " >
 				<img src="<?php echo base_url() ?>ProfileSmk/assets/zerotype/images/logo.png" width="100px">
 			</div>
 			<ul id="navigation">
@@ -9,6 +9,9 @@
 				</li>
 				<li id="jurusan">
 					<a href="<?php echo base_url()?>home/jurusan">Kompetensi Keahlian</a>
+				</li>
+				<li id="guru">
+					<a href="<?php echo base_url()?>home/guru">Guru</a>
 				</li>
 				<li id="ekskul">
 					<a href="<?php echo base_url()?>home/ekskul">Ekskul</a>
@@ -28,6 +31,7 @@
 				<li id="kontak">
 					<a href="<?php echo base_url()?>home/kontak">Kontak</a>
 				</li>
+
 				
 			</ul>
 		</div>

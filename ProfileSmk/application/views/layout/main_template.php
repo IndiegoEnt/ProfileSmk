@@ -93,6 +93,7 @@
             <li id="admin"><a href="<?php echo base_url(); ?>admin">Home</a></li>
             <li id="users"><a href="<?php echo base_url(); ?>users">Users <span class="sr-only">(current)</span></a></li>
             <li id="profile"><a href="<?php echo base_url(); ?>profile">Profile</a></li>
+            <li id="guru"><a href="<?php echo base_url(); ?>guru">Direktori Guru</a></li>
             <li id="berita"><a href="<?php echo base_url(); ?>berita">Berita</a></li>
             <li id="kategori"><a href="<?php echo base_url(); ?>kategori">Kategori</a></li>
             <li id="ekskul"><a href="<?php echo base_url(); ?>ekskul">Ekskul</a></li>

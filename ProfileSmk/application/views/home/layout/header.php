@@ -1,6 +1,9 @@
 
 	<meta charset="UTF-8">
 	<title>SMKN 2 Cimahi</title>
+    
+    <link href="<?php echo base_url() ?>ProfileSmk/assets/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+
 	<link rel="stylesheet" href="<?php echo base_url() ?>ProfileSmk/assets/zerotype/css/style.css" type="text/css">
 
 	
