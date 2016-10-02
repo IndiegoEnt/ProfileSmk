@@ -1,15 +1,26 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 	class Berita_Model extends CI_Model {
-		public function list_berita_home() {
+		public function list_berita_home($page) {
 			$data = array('berita.active' => '1' );
 			$this->db->select('berita.* , users.username as username');
 			$this->db->join('users', 'users.id = berita.user_id', 'left');
 			$this->db->order_by('tanggal_buat' , 'desc');
+			$this->db->limit(5, ($page * 5) - 5 );
 			$query = $this->db->get_where("berita" , $data);
-			
 			return $query->result();
 		}
+		public function count_berita_home($page) {
+			$data = array('berita.active' => '1' );
+			$this->db->select('berita.id');
+			$this->db->join('users', 'users.id = berita.user_id', 'left');
+			$query = $this->db->get_where("berita" , $data);
+			return $query->num_rows();
+		}
+
+
+
+		
 		public function list_berita() {
 			$data = array('berita.active' => '1');
 			

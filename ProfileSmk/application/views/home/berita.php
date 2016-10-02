@@ -48,12 +48,23 @@
 				<?php } ?>
 			</ul>
 			<div class="news-nav">
+				<?php if((($page) * 5 ) < $countData){?> 
 				<div class="next item">
-					Next <i class="fa fa-arrow-right" aria-hidden="true"></i>
+					<a href="<?php echo base_url();?>home/berita/<?php echo ($page + 1 )?>">
+
+						Next <i class="fa fa-arrow-right" aria-hidden="true"></i>
+					</a>
 				</div>
+				<?php } ?>
+
+				<?php if(($page - 1) > 0){?> 
 				<div class="prev item">
-					 <i class="fa fa-arrow-left" aria-hidden="true"></i> Prev
+
+					<a href="<?php echo base_url();?>home/berita/<?php echo ($page - 1 )?>">
+						<i class="fa fa-arrow-left" aria-hidden="true"></i> Prev
+					<a>
 				</div>
+				<?php } ?>
 			</div>
 		</div>
 	</div>
