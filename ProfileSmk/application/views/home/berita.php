@@ -5,6 +5,9 @@
     <?php
         echo($header);
     ?>
+    <style type="text/css">
+    	
+    </style>
 
 </head>
 <body>
@@ -32,7 +35,7 @@
 					</div>
 					<h2><?php echo ($value->judul); ?> <span><?php echo ($value->username); ?></span></h2>
 					
-					<div class='beritaThumb'>
+					<div class='beritaThumb' style="word-break: break-all;">
 					<div class="image">
 						<img src="<?php echo base_url();?>upload/<?php echo $value->image?>" width="200px">
 					</div>
