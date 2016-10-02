@@ -42,6 +42,38 @@
 			return $params;
 		}
 
+		public function save_from_event($params, $ci)
+		{
+			$currentDate = date('YmdHis');
+			$params['tanggal_buat'] = $currentDate;
+			$params['tanggal_edit'] = $currentDate;
+			$params['active'] = 1;
+			$params['tampilkan'] = 1;
+
+			$params['image'] =  $this->uploadFile_from_event($ci , md5("THUMB_" . $currentDate ));
+			if(!$params['image']){
+				$params['image'] = 'noimage.png';
+			}
+			$params['user_id'] = $this->session->userdata('id');
+			$this->db->insert('galeri', $params);
+			return $params;
+		}
+
+		public function uploadFile_from_event($ci , $currentDate){
+			$config['file_name'] = $currentDate;
+			$config['upload_path']   = './upload/'; 
+			$config['allowed_types'] = 'gif|jpg|png'; 
+			$ci->load->library('upload', $config);
+			
+			if ( ! $ci->upload->do_upload('files')) {
+				
+			} else { 
+				$data = array('upload_data' => $ci->upload->data()); 
+				return $data['upload_data']['file_name'];
+			}
+			return null; 
+		}
+
 		public function uploadFile($ci , $currentDate){
 			$config['file_name'] = $currentDate;
 			$config['upload_path']   = './upload/'; 

@@ -26,6 +26,60 @@ class Home extends CI_Controller {
         );
         $this->load->view('home/jurusan' , $template);
     }
+    public function view_jurusan_home($id) {
+        $this->load->model('Berita_Model');
+        $this->load->model('Jurusan_Model');
+        $this->load->model('Ekskul_Model');
+        $this->load->model('Profile_Model');
+        $this->load->model('Kategori_Model');
+        $template = array(
+            'header' =>  $this->load->view('home/layout/header' , false, true) ,
+            'nav' =>  $this->load->view('home/layout/nav' , false, true) ,
+            'foot' =>  $this->load->view('home/layout/foot' , false, true) ,
+            'jurusans' => $this->Jurusan_Model->detail_jurusan_home(),
+            'kategoris' => $this->Kategori_Model->list_jurusan_by_berita_id($id),
+            'template' => $this->template->content->view('home/layout/jurusan/view_jurusan', array(
+                    'backUrl' => base_url()."home/jurusan",
+                    
+                    'jurusanModel' => $this->Jurusan_Model->get($id)
+            ) , true)
+        );
+
+        $this->load->view('home/view_jurusan_home', $template);
+       
+    }
+
+    public function ppdb() {
+        $this->load->model('Berita_Model');
+        $template = array(
+            'header' =>  $this->load->view('home/layout/header' , false, true) ,
+            'nav' =>  $this->load->view('home/layout/nav' , false, true) ,
+            'foot' =>  $this->load->view('home/layout/foot' , false, true) ,
+            'tableData' => $this->Berita_Model->list_kategori_ppdb() 
+        );
+        $this->load->view('home/ppdb' , $template);
+    }
+    public function view_ppdb_home($id) {
+        $this->load->model('Berita_Model');
+        $this->load->model('Jurusan_Model');
+        $this->load->model('Kategori_Model');
+        $template = array(
+            'header' =>  $this->load->view('home/layout/header' , false, true) ,
+            'nav' =>  $this->load->view('home/layout/nav' , false, true) ,
+            'foot' =>  $this->load->view('home/layout/foot' , false, true) ,
+            'title' => 'Edit User',
+            'jurusans' => $this->Jurusan_Model->list_jurusan(),
+            'kategoris' => $this->Kategori_Model->list_jurusan_by_berita_id($id),
+            'template' => $this->template->content->view('home/layout/berita/view_berita', array(
+                    'backUrl' => base_url()."home/ppdb",
+                    'beritaModel' => $this->Berita_Model->get($id)
+            ) , true)
+        );
+
+        $this->load->view('home/view_berita_home', $template);
+       
+    }
+
     public function ekskul() {
         $this->load->model('Ekskul_Model');
         $template = array(
@@ -38,6 +92,8 @@ class Home extends CI_Controller {
     }
     public function berita($page = 1) {
         $this->load->model('Berita_Model');
+        $this->load->model('Kategori_Model');
+        $this->load->model('kategori_berita_Model');
         $template = array(
             'header' =>  $this->load->view('home/layout/header' , false, true) ,
             'nav' =>  $this->load->view('home/layout/nav' , false, true) ,
@@ -69,6 +125,7 @@ class Home extends CI_Controller {
         $this->load->view('home/view_berita_home', $template);
        
     }
+
     public function view_event_home($id) {
         $this->load->model('Event_Model');
         $template = array(

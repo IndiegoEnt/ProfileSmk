@@ -10,5 +10,6 @@
   <button type="submit" class="btn btn-default" id="button-submit">Submit</button>
 </form>
 <script>
+    
     CKEDITOR.replace( 'keterangan' );
 </script>

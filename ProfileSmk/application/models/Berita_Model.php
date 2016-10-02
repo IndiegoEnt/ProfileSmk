@@ -2,8 +2,8 @@
 
 	class Berita_Model extends CI_Model {
 		public function list_berita_home($page) {
-			$data = array('berita.active' => '1' );
-			$this->db->select('berita.* , users.username as username');
+			$data = array('berita.active' => '1' , 'berita_type !=' => 'BERITA_PPDB' );
+			$this->db->select('berita.* , users.username as username ,');
 			$this->db->join('users', 'users.id = berita.user_id', 'left');
 			$this->db->order_by('tanggal_buat' , 'desc');
 			$this->db->limit(5, ($page * 5) - 5 );
@@ -34,6 +34,10 @@
 			$query = $this->db->get_where("berita" , $data);
 			return $query->result();
 		}
+		public function list_berita_by_jurusan ($jurusan_id) {
+			$query = $this->db->get_where("berita" , array('jurusan_id' =>  $jurusan_id , 'active' => '1'));
+			return $query->result();
+		}
 
 		public function  create_model() {
 			return array(
@@ -42,6 +46,18 @@
 				'jurusan' => '' ,
 				'role' => '' ,
 			);
+		}
+
+		public function list_kategori_ppdb()
+		{
+			$data = array('berita.active' => '1' );
+			$this->db->select('berita.* , users.username as username');
+			$this->db->join('users', 'users.id = berita.user_id', 'left');
+			$this->db->order_by('tanggal_buat' , 'desc');
+			$this->db->where('berita_type', 'BERITA_PPDB');
+			$this->db->from('berita');
+			$query = $this->db->get();
+			return $query->result();
 		}
 
 		public function  save($params , $ci) {

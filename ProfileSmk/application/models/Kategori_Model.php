@@ -57,4 +57,9 @@
 			return $id;
 		}
 
+		public function  check_kategori($id) {
+			$query = $this->db->get_where("kategori" , array('nama' => $id));
+			return $query->row() ? '1' : '0';
+		}
+
 	}

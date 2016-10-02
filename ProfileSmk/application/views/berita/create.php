@@ -6,6 +6,7 @@
         <option value="" >Pilih Jenis Berita</option>
         <option value="BERITA_SEKOLAH" >Sekolah</option>
         <option value="BERITA_JURUSAN" >Jurusan</option>
+        <option value="BERITA_PPDB" >PPDB</option>
     </select>
   </div> 
   <div class="form-group" id="jurusanContainer">
@@ -52,10 +53,17 @@
     $('#berita_type').change(function() {
         if($(this).val() != 'BERITA_JURUSAN'){
             $('#jurusanContainer').hide();
-            $('#jurusan').prop('required' , false)
+            $('#jurusan').prop('required' , false);
+            if($(this).val() == 'BERITA_PPDB'){
+                var det = new Date();
+                var str_ppdb = "PPDB " + det.getFullYear();
+                $('#kategoris').tagsinput('add', str_ppdb);
+                $('#kategori_container').val(str_ppdb);
+                $('#jurusan').prop('required' , true)
+            }
         }else{
             $('#jurusanContainer').show();
-            $('#jurusan').prop('required' , true)
+            $('#jurusan').prop('required' , true);
         }
     })
     $('#berita_type').change();
@@ -83,6 +91,8 @@
     $('#kategoris').on('itemAdded', function(event) {
       $('#kategori_container').val($(this).val())
     }).on('itemRemoved', function(event) {
+      $('#kategori_container').val($(this).val())
+    }).on('itemChanged',function(event) {
       $('#kategori_container').val($(this).val())
     });
     
