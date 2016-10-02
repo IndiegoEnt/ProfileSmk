@@ -48,16 +48,24 @@
 			);
 		}
 
-		public function list_kategori_ppdb()
+		public function list_kategori_ppdb($page)
 		{
 			$data = array('berita.active' => '1' );
 			$this->db->select('berita.* , users.username as username');
 			$this->db->join('users', 'users.id = berita.user_id', 'left');
 			$this->db->order_by('tanggal_buat' , 'desc');
+			$this->db->limit(5, ($page * 5) - 5 );
 			$this->db->where('berita_type', 'BERITA_PPDB');
 			$this->db->from('berita');
 			$query = $this->db->get();
 			return $query->result();
+		}
+
+		public function count_ppdb_home($page) {
+			$this->db->select('berita.id');
+			$this->db->join('users', 'users.id = berita.user_id', 'left');
+			$query = $this->db->get_where("berita" , array('berita_type' => 'BERITA_PPDB' , 'berita.active' => '1'));
+			return $query->num_rows();
 		}
 
 		public function  save($params , $ci) {

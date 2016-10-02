@@ -1,14 +1,23 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 	class Event_Model extends CI_Model {
-		public function list_event_home() {
+		public function list_event_home($page) {
 			$data = array('event.active' => '1' );
 			$this->db->select('event.* , users.username as username , jurusan.nama as nama_jurusan');
 			$this->db->join('users', 'users.id = event.user_id', 'left');
 			$this->db->join('jurusan', 'jurusan.id = event.jurusan_id', 'left');
 			$this->db->order_by('tanggal_buat' , 'desc');
+			$this->db->limit(5, ($page * 5) - 5 );
 			$query = $this->db->get_where("event" , $data);
 			return $query->result();
+		}
+
+		public function count_event_home($page) {
+			$data = array('event.active' => '1' );
+			$this->db->select('event.id');
+			$this->db->join('users', 'users.id = event.user_id', 'left');
+			$query = $this->db->get_where("event" , $data);
+			return $query->num_rows();
 		}
 
 		public function list_event() {

@@ -53,7 +53,7 @@
 			<div class="news-nav">
 				<?php if((($page) * 5 ) < $countData){?> 
 				<div class="next item">
-					<a href="<?php echo base_url();?>home/berita/<?php echo ($page + 1 )?>">
+					<a href="<?php echo base_url();?>home/berita/<?php echo ($page + 1 )?>" style="text-decoration:none;color: inherit;">
 
 						Next <i class="fa fa-arrow-right" aria-hidden="true"></i>
 					</a>
@@ -63,7 +63,7 @@
 				<?php if(($page - 1) > 0){?> 
 				<div class="prev item">
 
-					<a href="<?php echo base_url();?>home/berita/<?php echo ($page - 1 )?>">
+					<a href="<?php echo base_url();?>home/berita/<?php echo ($page - 1 )?>" style="text-decoration:none;color: inherit;">
 						<i class="fa fa-arrow-left" aria-hidden="true"></i> Prev
 					<a>
 				</div>

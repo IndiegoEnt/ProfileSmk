@@ -10,7 +10,9 @@
 .post div.image{
 	float:left;
 	padding-right:10px;
-	width: 200px;
+	width: 200px; 
+    word-break: break-all;
+
 }
 .post h1 {
 	padding-top: 12px;
@@ -114,6 +116,7 @@ p a {
 	background-color: #f99600;
 	color: #000;
 }
+
 </style>
 	<div class="post">
 			<h1><?php echo($beritaModel->judul ); ?> 

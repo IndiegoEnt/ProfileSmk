@@ -49,13 +49,15 @@ class Home extends CI_Controller {
        
     }
 
-    public function ppdb() {
+    public function ppdb($page = 1) {
         $this->load->model('Berita_Model');
         $template = array(
             'header' =>  $this->load->view('home/layout/header' , false, true) ,
             'nav' =>  $this->load->view('home/layout/nav' , false, true) ,
             'foot' =>  $this->load->view('home/layout/foot' , false, true) ,
-            'tableData' => $this->Berita_Model->list_kategori_ppdb() 
+            'tableData' => $this->Berita_Model->list_kategori_ppdb($page) ,
+            'countData' => $this->Berita_Model->count_ppdb_home($page) ,
+            'page' => $page
         );
         $this->load->view('home/ppdb' , $template);
     }
@@ -153,13 +155,15 @@ class Home extends CI_Controller {
         );
         $this->load->view('home/galery' , $template);
     }
-     public function event() {
+     public function event($page = 1) {
         $this->load->model('Event_Model');
         $template = array(
             'header' =>  $this->load->view('home/layout/header' , false, true) ,
             'nav' =>  $this->load->view('home/layout/nav' , false, true) ,
             'foot' =>  $this->load->view('home/layout/foot' , false, true) ,
-            'tableData' => $this->Event_Model->list_event()
+            'tableData' => $this->Event_Model->list_event_home($page) ,
+            'countData' => $this->Event_Model->count_event_home($page) ,
+            'page' => $page
         );
         $this->load->view('home/event' , $template);
     }

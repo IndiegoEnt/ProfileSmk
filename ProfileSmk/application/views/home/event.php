@@ -46,12 +46,23 @@
 				<?php } ?>
 			</ul>
 			<div class="news-nav">
+				<?php if((($page) * 5 ) < $countData){?> 
 				<div class="next item">
-					Next <i class="fa fa-arrow-right" aria-hidden="true"></i>
+					<a href="<?php echo base_url();?>home/event/<?php echo ($page + 1 )?>" style="text-decoration:none;color: inherit;">
+
+						Next <i class="fa fa-arrow-right" aria-hidden="true"></i>
+					</a>
 				</div>
+				<?php } ?>
+
+				<?php if(($page - 1) > 0){?> 
 				<div class="prev item">
-					 <i class="fa fa-arrow-left" aria-hidden="true"></i> Prev
+
+					<a href="<?php echo base_url();?>home/event/<?php echo ($page - 1 )?>" style="text-decoration:none;color: inherit;">
+						<i class="fa fa-arrow-left" aria-hidden="true"></i> Prev
+					<a>
 				</div>
+				<?php } ?>
 			</div>
 		</div>
 	</div>
