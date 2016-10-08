@@ -26,6 +26,11 @@
 
 		public function  save($params , $ci) {
 			$currentDate = date('YmdHis');
+
+			if($params['galery_type'] == 'GALERY_GENERAL'){
+				$params['event_id'] = 'null';
+			}
+
 			$params['tanggal_buat'] = $currentDate;
 			$params['tanggal_edit'] = $currentDate;
 			$params['active'] = 1;
@@ -45,6 +50,11 @@
 		public function save_from_event($params, $ci)
 		{
 			$currentDate = date('YmdHis');
+
+			unset($params['event_type']);
+			unset($params['jurusan_id']);
+
+
 			$params['tanggal_buat'] = $currentDate;
 			$params['tanggal_edit'] = $currentDate;
 			$params['active'] = 1;
@@ -100,12 +110,20 @@
 			$params['tanggal_edit'] = $currentDate;
 			$params['active'] = 1;
 
+
 			$data = array(
+				'galery_type' =>$params['galery_type'],
+				'event_id' => $params['event_id'],
 				'tanggal_edit' =>$params['tanggal_edit'],
 				'nama' => $params['nama'],
 				'keterangan' => $params['keterangan'],
 				'tampilkan' => $params['tampilkan'],
 			);
+
+			if($data['galery_type'] == 'GALERY_GENERAL'){
+				$data['event_id'] = 'null';
+			}
+
 			if($data['tampilkan'] == null){
 				$data['tampilkan'] = '0';
 			}

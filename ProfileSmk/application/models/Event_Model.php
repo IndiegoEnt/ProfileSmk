@@ -41,7 +41,6 @@
 		public function  save($params , $ci) {
 			
 			$currentDate = date('YmdHis');
-			$this->load->model('Kategori_Berita_Model');
 			$params['tanggal_buat'] = $currentDate;
 			$params['tanggal_edit'] = $currentDate;
 			$params['active'] = 1;
@@ -57,6 +56,7 @@
 			
 			$this->db->insert('event', $params);
 			$this->uploadFile($ci , $this->db->insert_id());
+
 			return $params;
 		}
 

@@ -28,9 +28,12 @@ class Galeri extends CI_Controller {
     public function create() {
         $this->load->model('Galeri_Model');
         
+        $this->load->model('Event_Model');
+        
         $data = array(
             'title' => 'Create Galeri',
-            'galeriModel' => $this->Galeri_Model->create_galeri()
+            'galeriModel' => $this->Galeri_Model->create_galeri(),
+            'events' => $this->Event_Model->list_event()
         );
 
         
@@ -53,9 +56,11 @@ class Galeri extends CI_Controller {
     public function edit($id) {
         $this->load->model('Galeri_Model');
 
+        $this->load->model('Event_Model');
         $data = array(
             'galeriModel' => $this->Galeri_Model->get($id),
             'title' => 'Edit Galeri',
+            'events' => $this->Event_Model->list_event()
         );
 
         $this->template->content->view('galeri/edit', $data);

@@ -34,7 +34,7 @@
 					<h2><?php echo ($value->nama); ?></h2>
 					
 					<div class='beritaThumb'>
-					<?php echo ($value->keterangan); ?>
+						<?php echo ($value->keterangan); ?>
 					</div>
 					<div class="beritaAksi">
 					<span>
